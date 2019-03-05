@@ -31,17 +31,20 @@
 
 /* Basic navbar item */
 .navbar-wagon-item {
+  background-color: white;
+  height: 30px;
   cursor: pointer;
   padding: 0 20px;
 }
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: #616668;
-  font-size: 14px;
+  color: #10E7DC;
+  font-size: 18px;
+  text-align: center;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: #F79E02;
   text-decoration: none;
 }
 
@@ -75,3 +78,9 @@
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
+.navbar-loginbtn{
+  border-radius: 30px;
+}
+
+
