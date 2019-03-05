@@ -1,47 +1,57 @@
 require 'faker'
 
-fr = Language.create(name: 'french')
-en = Language.create(name: 'english')
-ger = Language.create(name: 'german')
+Slot.destroy_all
+Doctor.destroy_all
+DoctorLanguage.destroy_all
+Language.destroy_all
+Field.destroy_all
 
-md = Field.create(name: 'MD')
-surgeon = Field.create(name: 'Surgeon')
+puts 'Creating Language'
+fr = Language.create!(name: 'french')
+en = Language.create!(name: 'english')
+ger = Language.create!(name: 'german')
 
-names_for_surgeons = [
-  "Dr. Stephan-Peter Hamm", "Dr. Susanne Lutz", "Dr. Christopher Marchand",
-  "Dr. Michael Hoffmann", "Dr. Med Susanne Schroeder" "Dr. Med Susann Schumann"
-]
-
-names_for_surgeons_emails =
-
-
-
-
-
-10.times do
-  doctor = Doctor.create(
-    name: names_for_surgeons.sample
-    email:
-    field: [md, surgeon].sample
-    language: [fr, en, ger].sample
-    description:
+puts 'Creating Fields'
+md = Field.create!(name: 'MD')
+surgeon = Field.create!(name: 'Surgeon')
 
 
 
-    DoctorLanguage.create(doctor: doctor, language: fr)
-    10.times do
-      Slot.create()
-    end
+
+puts 'Creating Doctors'
+
+50.times do
+  surgeont_name = Faker::Name.name
+  email_surgeont = Faker::Internet.email(surgeont_name)
+
+  doctor = Doctor.create!(
+    name: surgeont_name,
+    email: email_surgeont,
+    field: [md, surgeon].sample,
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, laudantium.",
+    address: Faker::Address.full_address
+    )
+  DoctorLanguage.create!(doctor: doctor, language: [fr, en, ger].sample)
+  puts "Creating Slot for doctor #{surgeont_name}"
+  50.times do
+   slot =  Slot.create!(
+      start_time: Faker::Time.forward(30, :morning),
+      duration: 1,
+      weekday: rand(1..5),
+      week_number: Time.now.strftime("%U").to_i + rand(1..50),
+      doctor: doctor
+      )
   end
+end
 
 
 
-  puts 'Cleaning the database...'
-  Doctor.destroy_all
+  # puts 'Cleaning the database...'
+  # Doctor.destroy_all
 
-  fake_attributes = [{},]
+  # fake_attributes = [{},]
 
 
-  Doctor.create!(fake_attributes)
-  puts 'adding photos'
-  puts "Done!"
+  # Doctor.create!(fake_attributes)
+  # puts 'adding photos'
+  # puts "Done!"
