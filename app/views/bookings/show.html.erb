@@ -1,0 +1,10 @@
+<div class="booking-container">
+<h2>WOOHOO!</h2>
+<h2>Your booking is <strong>Now Confirmed!</strong></h2>
+
+<h4>Here are the details of your booking:</h4>
+<h4> user: <%= @booking.user %> </h4>
+<h4> slot: <%= @booking.slot %> </h4>
+
+<%= link_to "See all my bookings", bookings_path %>
+</div>

@@ -1,0 +1,14 @@
+
+
+<h2>These are all your bookings:</h2>
+
+
+
+<% current_user.bookings.each do |booking| %>
+    <li>slot: <%= link_to booking.slot, booking_path(current_user, booking) %></li>
+    <li>user: <%= link_to booking.user, booking_path(current_user, booking) %></li>
+
+    <% end %>
+
+
+

@@ -1,0 +1,12 @@
+<div class="box">
+<%= form_tag("fan_groups", method: :get, class: "search-engine") do %>
+<div>
+  <%= text_field_tag :city,
+    params[:city],
+    class: "form-control", id: "booking_address",
+    placeholder: "Speciality?"
+  %></div>
+<div>
+  <%= submit_tag(value = "Find your Doctor")%></div>
+<% end %>
+</div>
