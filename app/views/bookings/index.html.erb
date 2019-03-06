@@ -1,14 +1,17 @@
+<div class="booking-container">
+
+  <h2>These are all your bookings:</h2>
 
 
-<h2>These are all your bookings:</h2>
+
+  <% current_user.bookings.each do |booking| %>
+  <li>  Dr. <%= booking.slot.doctor.name %> | Scheduled for:  <%=  booking.date %> (<%= booking.time %>) </li>
+  <% end %>
 
 
+  <%= link_to "Schedule another appointment", doctors_path %>
 
-<% current_user.bookings.each do |booking| %>
-    <li>slot: <%= link_to booking.slot, booking_path(current_user, booking) %></li>
-    <li>user: <%= link_to booking.user, booking_path(current_user, booking) %></li>
-
-    <% end %>
+</div>
 
 
 

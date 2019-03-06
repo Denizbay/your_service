@@ -1,0 +1,16 @@
+
+    <p> <strong> Create a new booking: </strong> </p>
+
+
+
+          <div class="form">
+          <%= simple_form_for([@doctor, @booking]) do |f| %>
+          <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker"} %>
+          <%= f.input :time, as: :string, required: false, input_html: {class: "datepicker-nocalendar"} %>
+          <%= f.input :location, input_html: {id: "booking_address"}  %>
+          <%= f.submit "Submit a booking", class: "btn btn-primary" %>
+          <% end %>
+
+
+        </div>
+    </div>
