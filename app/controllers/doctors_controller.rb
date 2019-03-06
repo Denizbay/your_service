@@ -1,5 +1,5 @@
 class DoctorsController < ApplicationController
-skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @doctors = Doctor.where.not(latitude: nil, longitude: nil)
@@ -14,7 +14,9 @@ skip_before_action :authenticate_user!, only: [:index, :show]
   end
 
   def show
-
+    @doctor = Doctor.find(params[:id])
+    @booking = Booking.new
+    @week_number = params[:week_number].present? ? params[:week_number] : Date.current.cweek
   end
 
 end

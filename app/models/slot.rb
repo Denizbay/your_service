@@ -10,4 +10,8 @@ class Slot < ApplicationRecord
   def is_available?
     !self.booking
   end
+
+  def pretty_time
+    start_time.strftime('%l:%M %p')
+  end
 end
