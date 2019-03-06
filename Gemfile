@@ -8,6 +8,8 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.2'
 gem 'redis'
+gem 'algoliasearch-rails'
+gem 'pg_search'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
@@ -18,6 +20,8 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'faker'
 gem "geocoder"
+gem 'simple_form'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
