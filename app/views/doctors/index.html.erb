@@ -39,6 +39,24 @@
 
 
 <div class="container">
+
+  <div class="notification">
+
+    <% @doctors.each do |doctor| %>
+
+      <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large"/>
+      <%#= cl_image_tag(fan_group.photo)%>
+      <div class="notification-content">
+        <h2><%= link_to doctor.name, doctor_path(doctor) %> </h2>
+        <h3> field.name <%#= field.name %> </h3>
+        <p> review.stars <%#= review.stars %> </p>
+        <p> review.content <%#= review.content %> </p>
+        <h5> doctor.address <%#= doctor.address %> </h3>
+      </div>
+    <% end %>
+  </div>
+
+
   <div
   id="map"
   style="width: 100%;
