@@ -1,16 +1,3 @@
-<!-- <div class="doctorshowleft">
-  <div class="centered">
-    <%= image_tag "logo.png", alt: "alttext" %>
-    <p>test</p>
-    <p>test 2 </p>
-  </div>
-</div>
-<div class="doctorshowright">test</div>
-<div class="doctorshowleftunder">test</div>
-<div class="doctorshowleftunder2">test</div>
-
- -->
-
 <div class="background">
  <div class="flexbox">
   <div class="flex-left">
@@ -47,3 +34,18 @@
   </div>
  </div>
  </div>
+
+<div class="container">
+  <p> <strong> Create a new booking: </strong> </p>
+
+  <div class="form">
+    <%= simple_form_for([@doctor, @booking]) do |f| %>
+
+    <%= f.collection_radio_buttons :slot_id, @doctor.week_slots(@week_number), :id, :pretty_time %>
+
+    <%= f.submit "Submit a booking", class: "btn btn-primary" %>
+    <% end %>
+
+
+  </div>
+</div>

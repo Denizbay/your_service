@@ -1,7 +1,86 @@
-<div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
+<div class="container">
+
+  <form class="grouped_dropdown" action="/fan_groups" method="get">
+
+    <div class="form-group">
+      <label for="exampleSelectCity">City</label>
+      <input class="form-control" type="text" name="city" id="city" required class="form-group">
+    </div>
+
+    <div class="form-group">
+      <label for="exampleSelectField">Field</label>
+      <select class="form-control" id="exampleSelectField"  name="field">
+        <option value= ''>Select Field</option>
+        <option value="Andrology">Andrology</option>
+        <option value="Gynaecology">Gynaecology</option>
+        <option value="General">General</option>
+        <option value="Dermatology">Dermatology</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleSelectGroupLanguage">Language</label>
+      <select class="form-control" id="exampleSelectLanguage" name="language">
+        <option value="">Select Language</option>
+        <option value="English">English</option>
+        <option value="Spanish">Spanish</option>
+        <option value="Mandarin">Mandarin</option>
+        <option value="Cantonees">Cantonees</option>
+      </select>
+    </div>
+
+    <div>
+      <button type="submit" class="btn btn-primary">help is on the way</button>
+    </div>
+
+  </form>
+
+
+
+  <div class="main-container">
+
+    <div class="cards">
+
+      <div class="cards-container">
+
+        <div class="row">
+
+          <% @doctors.each do |doctor| %>
+          <div class="col-xs-12 col-sm-12 col-md-12">
+
+            <div class="notification">
+
+              <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large"/>
+              <%#= cl_image_tag(fan_group.photo)%>
+              <div class="notification-content">
+                <h2><%= link_to doctor.name, doctor_path(doctor) %> </h2>
+                <h3> field.name <%#= field.name %> </h3>
+                <p> review.stars <%#= review.stars %> </p>
+                <p> review.content <%#= review.content %> </p>
+                <h5> doctor.address <%#= doctor.address %> </h3>
+                </div>
+              </div>
+            </div>
+
+            <% end %>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div
+      id="map"
+      style="width: 100%;
+      height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
+
+  </div>
+
+</div>
+
+
