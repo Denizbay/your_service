@@ -1,0 +1,24 @@
+<div id="week_view">
+  <p> <strong> Create a new booking: </strong> </p>
+
+  <div class="form">
+    <%= simple_form_for([@doctor, @booking]) do |f| %>
+
+    <div id="week_grid">
+      <div>Mon</div>
+      <div>Tue</div>
+      <div>Wed</div>
+      <div>Thu</div>
+      <div>Fri</div>
+      <% @doctor.week_slots(@week_number).each_with_index do |s, idx| %>
+        <div style="<%= "grid-column: #{s.weekday} / 5; grid-row: #{idx + 2} / 8;" %>">
+          <%= radio_button_tag "booking[slot_id]", s.id %>
+          <%= label_tag "booking_slot_id_#{s.id}", s.pretty_time %>
+        </div>
+      <% end %>
+    </div>
+
+    <%= f.submit "Submit a booking", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
