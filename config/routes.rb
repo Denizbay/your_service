@@ -5,16 +5,15 @@ Rails.application.routes.draw do
   resources :doctors, only: [:index, :show] do
     #resources :slots, only: [:index, :show, :edit, :update]
     #resources :reviews, only: [:index, :show]
-    resources :bookings, only: [:new, :create, :show] do
-      resources :reviews, only: [:create]
-    end
+    resources :bookings, only: [:new, :create, :show]
   end
-  resources :bookings, only: [:destroy]
+  resources :bookings, only: [:destroy] do
+    resources :reviews, only: [:create]
+  end
 
 
   resources :users, only: [:show]
   resources :bookings, only: [:index, :show, :edit, :update]
 end
-
 
 
