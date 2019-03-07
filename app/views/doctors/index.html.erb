@@ -30,39 +30,57 @@
     </div>
 
     <div>
-      <button type="submit" class="btn btn-primary">Never Walk Alone</button>
+      <button type="submit" class="btn btn-primary">help is on the way</button>
     </div>
 
   </form>
 
-</div>
 
 
-<div class="container">
+  <div class="main-container">
 
-  <div class="notification">
+    <div class="cards">
 
-    <% @doctors.each do |doctor| %>
+      <div class="cards-container">
 
-      <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large"/>
-      <%#= cl_image_tag(fan_group.photo)%>
-      <div class="notification-content">
-        <h2><%= link_to doctor.name, doctor_path(doctor) %> </h2>
-        <h3> field.name <%#= field.name %> </h3>
-        <p> review.stars <%#= review.stars %> </p>
-        <p> review.content <%#= review.content %> </p>
-        <h5> doctor.address <%#= doctor.address %> </h3>
+        <div class="row">
+
+          <% @doctors.each do |doctor| %>
+          <div class="col-xs-12 col-sm-12 col-md-12">
+
+            <div class="notification">
+
+              <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large"/>
+              <%#= cl_image_tag(fan_group.photo)%>
+              <div class="notification-content">
+                <h2><%= link_to doctor.name, doctor_path(doctor) %> </h2>
+                <h3> field.name <%#= field.name %> </h3>
+                <p> review.stars <%#= review.stars %> </p>
+                <p> review.content <%#= review.content %> </p>
+                <h5> doctor.address <%#= doctor.address %> </h3>
+                </div>
+              </div>
+            </div>
+
+            <% end %>
+
+          </div>
+
+        </div>
+
       </div>
-    <% end %>
+
+
+      <div
+      id="map"
+      style="width: 100%;
+      height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
+
   </div>
 
-
-  <div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  ></div>
-
 </div>
+
+
