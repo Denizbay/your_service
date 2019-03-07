@@ -26,6 +26,10 @@ General = Field.create!(name: 'General')
 Dermatology = Field.create!(name: 'Dermatology')
 
 
+
+
+
+
 puts 'Creating Doctors'
 
 count = 0
@@ -43,15 +47,18 @@ count = 0
     )
   DoctorLanguage.create!(doctor: doctor, language: [en, es, ma, fr].sample)
   puts "Creating Slot for doctor #{surgeont_name}"
-  50.times do
-   slot =  Slot.create!(
-      start_time: Faker::Time.forward(30, :morning),
+  200.times do
+    start_time = (9..18).to_a.map { |hour| Time.new(0,1,1,hour)}.sample
+    week_no = (10..20).to_a.sample
+    slot =  Slot.where(doctor: doctor, start_time: start_time, week_number: week_no).first
+    next if slot
+    Slot.create!(
+      start_time: start_time,
       duration: 1,
       weekday: rand(1..5),
-      week_number: Time.now.strftime("%U").to_i + rand(1..50),
+      week_number: week_no,
       doctor: doctor
       )
-
   end
   count +=1
 end

@@ -16,6 +16,6 @@ class Doctor < ApplicationRecord
 
 
   def week_slots(week_no)
-    slots.where(week_number: week_no)
+    slots.where(week_number: week_no, weekday: Date.current.cwday).sort
   end
 end
