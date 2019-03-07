@@ -1,5 +1,5 @@
 class DoctorsController < ApplicationController
-skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @doctors = Doctor.all
@@ -13,6 +13,12 @@ skip_before_action :authenticate_user!, only: [:index, :show]
         infoWindow: render_to_string(partial: "/doctors/info_window", locals: { doctor: doctor })
       }
     end
+  end
+
+  def show
+    @doctor = Doctor.find(params[:id])
+    @booking = Booking.new
+    @week_number = params[:week_number].present? ? params[:week_number] : Date.current.cweek
   end
 
 end
