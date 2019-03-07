@@ -12,15 +12,18 @@ Language.destroy_all
 Field.destroy_all
 
 puts 'Creating Language'
-fr = Language.create!(name: 'french')
-en = Language.create!(name: 'english')
-ger = Language.create!(name: 'german')
+en = Language.create!(name: 'English')
+es = Language.create!(name: 'Spanish')
+ma = Language.create!(name: 'Mandarin')
+fr = Language.create!(name: 'French')
+
+
 
 puts 'Creating Fields'
-md = Field.create!(name: 'MD')
-surgeon = Field.create!(name: 'Surgeon')
-
-
+Andrology = Field.create!(name: 'Andrology')
+Gynaecology = Field.create!(name: 'Gynaecology')
+General = Field.create!(name: 'General')
+Dermatology = Field.create!(name: 'Dermatology')
 
 
 puts 'Creating Doctors'
@@ -34,11 +37,11 @@ count = 0
   doctor = Doctor.create!(
     name: surgeont_name,
     email: email_surgeont,
-    field: [md, surgeon].sample,
+    field: [Andrology, Gynaecology, General, Dermatology].sample,
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, laudantium.",
     address: data[count]["address"]
     )
-  DoctorLanguage.create!(doctor: doctor, language: [fr, en, ger].sample)
+  DoctorLanguage.create!(doctor: doctor, language: [en, es, ma, fr].sample)
   puts "Creating Slot for doctor #{surgeont_name}"
   50.times do
    slot =  Slot.create!(
