@@ -1,0 +1,81 @@
+.flexbox{
+  display: flex;
+  padding: 30px;
+  justify-content: space-between;
+}
+
+.flex-left{
+  height: calc(100vh - 130px);
+  flex: 0 0 55%;
+}
+
+.doctor-show-1{
+  height: 45%;
+  margin-bottom: 3%;
+  text-align: center;
+}
+
+.doctor-show-2{
+  height: 9%;
+  margin-bottom: 3%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.doctor-show-3{
+  height: 35%;
+  padding: 10px;
+}
+
+
+.doctor-show {
+  background-color: rgb(240,240,240);
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+
+}
+
+  .doctor-show-1 img {
+  width: 10%;
+  border-radius: 50%;
+  margin-top: 1%;
+}
+
+.flex-right{
+  height: calc(100vh - 490px);
+  flex: 0 0 35%;
+}
+
+.doctor-show-2 a{
+  font-size: 20px;
+  color: #F79E02;
+}
+
+.background{
+  background-color: rgba(108, 218, 238, 0.8);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

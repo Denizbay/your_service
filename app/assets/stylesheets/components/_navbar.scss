@@ -8,8 +8,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
+.headline{
+  position:absolute;
+      top: -14px;
+    left: 645px;
+}
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
@@ -31,7 +37,6 @@
 
 /* Basic navbar item */
 .navbar-wagon-item {
-  background-color: white;
   height: 30px;
   cursor: pointer;
   padding: 0 20px;
@@ -39,7 +44,7 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: #10E7DC;
+  color: #ffffff;
   font-size: 18px;
   text-align: center;
 }
