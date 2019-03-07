@@ -6,6 +6,7 @@ end
 
 def show
   @booking = Booking.find(params[:id])
+  @review = Review.new
 end
 
 def create
