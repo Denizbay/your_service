@@ -1,25 +1,23 @@
 <div class="container" >
 
-  <div class="search_filter">
-
-    <%= form_tag(doctors_path, method: :get) do %>
+    <%= form_tag(doctors_path, method: :get, class: "search-filter") do %>
     <div class="filter-tag">
-      <%= label_tag(:city, "Choose city") %>
+      <%#= label_tag(:city, "Choose city") %>
       <%= text_field_tag :city, "", placeholder: 'Select City', class: "form-control" %>
     </div>
 
     <div class="filter-tag">
-      <%= label_tag(:field_id, "Choose field", class: "form-group") %>
-      <%= select_tag(:field_id, options_for_select(Field.pluck(:name, :id),{prompt: 'Select Field'}), class: "form-control") %>
+      <%#= label_tag(:field_id, "Choose field", class: "form-group") %>
+      <%= select_tag(:field_id, options_for_select(Field.pluck(:name, :id)), prompt: 'Select Field', class: "form-control") %>
     </div>
 
     <div class="filter-tag">
-      <%= label_tag(:language_id, "Choose language", class: "form-group") %>
-      <%= select_tag(:language_id, options_for_select(Language.pluck(:name, :id)), class: "form-control") %>
+      <%#= label_tag(:language_id, "Choose language", class: "form-group") %>
+      <%= select_tag(:language_id, options_for_select(Language.pluck(:name, :id)), prompt: 'Select Language', class: "form-control") %>
     </div>
 
     <div class="filter-tag">
-      <%= submit_tag 'submit' %>
+      <%= submit_tag 'submit', class: "btn btn-primary" %>
     </div>
 
     <% end -%>
@@ -79,10 +77,16 @@
               <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large"/>
               <%#= cl_image_tag(fan_group.photo)%>
               <div class="notification-content">
-                <h2><%= link_to doctor.name, doctor_path(doctor) %> </h2>
-                <h3> <%= doctor.field.name %> </h3>
+                <h3><%= link_to doctor.name, doctor_path(doctor) %> </h2>
+                <h4> <%= doctor.field.name %> </h3>
                 <p> review.stars <%#= doctor.review.stars %> </p>
+
+                <% doctor.languages.each do |language| %>
+                  <p> <%= language.name %> </p>
+                  <% end %>
+
                 <p> <%= doctor.languages.name %> </p>
+
                 <h5> <%= doctor.address %> </h3>
                 </div>
               </div>
