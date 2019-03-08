@@ -1,21 +1,25 @@
-<div class="booking-container">
-  <h2>WOOHOO!</h2>
-  <h2>Your booking is <strong>Now Confirmed!</strong></h2>
+<div class="container-booking-show">
+  <div>
+    <h2>WOOHOO! 🎉🎉🎉🎉🎉🎉</h2>
+    <h2>Your booking is <strong>Now Confirmed!</strong></h2>
 
-  <h4>Here are the details of your booking, <%= @booking.user.email %> ! </h4>
-  <h4> You will be having an appointment with Dr. <%= @booking.slot.doctor.name %>. </h4>
-  <h4> Your appointment date and time: <%= @booking.date %> | <%= @booking.time %> </h4>
+    <h4>Here are the details of your booking, <%= @booking.user.email %> ! </h4>
+    <h4> You will be having an appointment with Dr. <%= @booking.slot.doctor.name %>. 👩‍⚕️👨‍⚕️ </h4>
+    <h4> Your appointment date and time: <%= @booking.date %> | <%= @booking.time %> </h4>
 
-  <%= link_to "See all my bookings", bookings_path %>
-  <br>
-  <%= link_to "Schedule another appointment", doctors_path %>
-  <%= render 'reviews/form', booking: @booking, review: @review %>
+
+    <%= link_to "See all my bookings", bookings_path, class: "btn btn-primary" %>
+
+    <%= link_to "Schedule another appointment", doctors_path, class: "btn btn-primary" %>
+
+  </div>
+</div>
+
+
+<!--   <%= render 'reviews/form', booking: @booking, review: @review %>
   <div id="reviews">
   <% if @booking.review.blank? %>
     Be the first to leave a review for <%= @doctor.name %>
   <% else %>
       <%= render 'reviews/show', review: @booking.review %>
   <% end %>
-</div>
-
-</div>
