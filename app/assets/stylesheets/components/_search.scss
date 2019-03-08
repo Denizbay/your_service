@@ -1,8 +1,28 @@
 .box{
-  background-color: rgba(16,231,220,0.8);
-  padding: 10px;
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  border-radius: 5px;
+
+    background-color: rgba(16, 231, 220, 0.8);
+    padding: 18px;
+    margin-left: 32%;
+    display: flex;
+    justify-content: space-around;
+    width: 157%;
+    border-radius: 10px;
+}
+
+.btn-search{
+   width: 141%;
+   height: 115%;
+  background-color: #F79E02;
+  color: white;
+  border-radius: 10px;
+}
+
+
+.btn-search2{
+  border: none;
+  background-color: #F79E02;
+  color: white;
+  border-radius: 10px;
+  width: 150px;
+
 }
