@@ -35,7 +35,7 @@ puts 'Creating Doctors'
 
 count = 0
 
-50.times do
+30.times do
   surgeont_name = Faker::Name.name
   email_surgeont = Faker::Internet.email(surgeont_name)
 
@@ -48,9 +48,9 @@ count = 0
     )
   DoctorLanguage.create!(doctor: doctor, language: [en, es, ma, fr].sample)
   puts "Creating Slot for doctor #{surgeont_name}"
-  200.times do
+  1000.times do
     start_time = (9..18).to_a.map { |hour| Time.new(0,1,1,hour)}.sample
-    week_no = (10..20).to_a.sample
+    week_no = (10..11).to_a.sample
     slot =  Slot.where(doctor: doctor, start_time: start_time, week_number: week_no).first
     next if slot
     Slot.create!(
