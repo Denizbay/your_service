@@ -1,7 +1,6 @@
 .search-filter {
 
     align-items: center;
-    justify-content: space-between;
     flex-direction: row;
     display: flex;
     box-sizing: border-box;
@@ -9,17 +8,10 @@
     flex-direction: row;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 0.25rem;
     padding: 10px;
-    margin-top: 10px;
+
 }
 
 .filter-tag {
-  display: inline-block;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
+  margin-right: 55px;
 }
