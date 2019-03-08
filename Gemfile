@@ -20,7 +20,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'faker'
 gem "geocoder"
-gem 'simple_form'
+gem 'time_difference'
 
 
 group :development do

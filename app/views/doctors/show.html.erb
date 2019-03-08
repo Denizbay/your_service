@@ -30,22 +30,7 @@
   </div>
 
   <div class="flex-right doctor-show">
-    <p>test</p>
+    <%= render 'week_view' %>
   </div>
  </div>
  </div>
-
-<div class="container">
-  <p> <strong> Create a new booking: </strong> </p>
-
-  <div class="form">
-    <%= simple_form_for([@doctor, @booking]) do |f| %>
-
-    <%= f.collection_radio_buttons :slot_id, @doctor.week_slots(@week_number), :id, :pretty_time %>
-
-    <%= f.submit "Submit a booking", class: "btn btn-primary" %>
-    <% end %>
-
-
-  </div>
-</div>
