@@ -4,7 +4,9 @@ class ReviewsController < ApplicationController
 
    def create
     @booking = Booking.find(params[:booking_id])
-    @review = Review.new
+    @review = Review.new(review_params)
+    @doctor = @booking.slot.doctor
+    @review.doctor = @doctor
     @review.booking = @booking
 
     if @review.save
@@ -18,6 +20,12 @@ class ReviewsController < ApplicationController
         format.js  # <-- idem
       end
     end
+  end
+
+  private
+
+  def review_params
+    params.require(:review).permit(:content, :stars)
   end
 
 end
