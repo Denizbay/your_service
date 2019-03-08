@@ -80,9 +80,13 @@
                 <h3><%= link_to doctor.name, doctor_path(doctor) %> </h2>
                 <h4> <%= doctor.field.name %> </h3>
                 <p> review.stars <%#= doctor.review.stars %> </p>
+
                 <% doctor.languages.each do |language| %>
                   <p> <%= language.name %> </p>
                   <% end %>
+
+                <p> <%= doctor.languages.name %> </p>
+
                 <h5> <%= doctor.address %> </h3>
                 </div>
               </div>

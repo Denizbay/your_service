@@ -6,6 +6,8 @@ end
 
 def show
   @booking = Booking.find(params[:id])
+  @doctor = @booking.slot.doctor
+  @review = Review.new
 end
 
 def create
@@ -18,6 +20,11 @@ def create
     render 'doctors/show'
   end
 end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+  end
 
 private
 

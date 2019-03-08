@@ -1,0 +1,7 @@
+
+
+<%= simple_form_for([ booking, review ], remote: true) do |form| %>
+  <%= form.input :content %>
+  <%= form.input :stars, collection: (1..5).to_a, label: "Rate your doc" %>
+  <%= form.button :submit %>
+<% end %>
