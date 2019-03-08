@@ -6,6 +6,7 @@ end
 
 def show
   @booking = Booking.find(params[:id])
+  @doctor = @booking.slot.doctor
   @review = Review.new
 end
 
