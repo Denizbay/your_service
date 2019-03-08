@@ -5,7 +5,8 @@
 
 
   <% current_user.bookings.each do |booking| %>
-  <li>  Dr. <%= booking.slot.doctor.name %> | Scheduled for:  <%=  booking.date %> (<%= booking.time %>) </li>
+  <li>  Dr. <%= booking.slot.doctor.name %> | Scheduled for:  <%=  booking.date %> (<%= booking.time %>)
+  <%= link_to "Delete", booking, method: :delete, remote: true %></li>
   <% end %>
 
 

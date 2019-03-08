@@ -4,19 +4,20 @@ class ReviewsController < ApplicationController
 
    def create
     @booking = Booking.find(params[:booking_id])
-    @review = Review.new(review_params)
+    @review = Review.new
     @review.booking = @booking
+
     if @review.save
-      redirect_to booking_path(@booking)
+      respond_to do |format|
+        format.html { redirect_to restaurant_path(@restaurant) }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
     else
-      render 'bookings/show'
+      respond_to do |format|
+        format.html { render 'bookings/show' }
+        format.js  # <-- idem
+      end
     end
-  end
-
-  private
-
-  def review_params
-    params.require(:review).permit(:content)
   end
 
 end
