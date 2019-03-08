@@ -23,6 +23,12 @@
      <h4>Language</h4>
      <p>English</p>
 
+         <% @doctor.reviews.each do |review|   %>
+        <%= review.content  %>
+        <% review.stars.times do |star| %>
+         <i class="fas fa-star"></i>
+        <% end %>
+        <% end %>
 
     </div>
 
@@ -32,15 +38,7 @@
     <%= render 'week_view' %>
   </div>
  </div>
+
+
+
  </div>
-
-
-
-<div class="container">
-     <% @doctor.reviews.each do |review|   %>
-    <%= review.content  %>
-    <% review.stars.times do |star| %>
-     <i class="fas fa-star"></i>
-    <% end %>
-    <% end %>
-</div>
