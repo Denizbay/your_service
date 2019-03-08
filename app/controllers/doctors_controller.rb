@@ -4,7 +4,11 @@ class DoctorsController < ApplicationController
   def index
     @doctors = Doctor.all
 
-    @doctors = Doctor.where.not(latitude: nil, longitude: nil)
+    @doctors = @doctors.where(field_id: params[:field_id]) if params[:field_id].present?
+    @doctors = @doctors.joins(:doctor_languages).where(doctor_languages: { language_id: params[:language_id] }) if params[:language_id].present?
+    @doctors = @doctors.near(params[:city]) if params[:city].present?
+
+    @doctors = @doctors.where.not(latitude: nil, longitude: nil)
 
     @markers = @doctors.map do |doctor|
       {
@@ -21,4 +25,12 @@ class DoctorsController < ApplicationController
     @week_number = params[:week_number].present? ? params[:week_number] : Date.current.cweek
   end
 
+private
+
+  def params_doctor
+    params.require(:doctors).permit(:name, :email, :address, :description)
+  end
+
+
 end
+

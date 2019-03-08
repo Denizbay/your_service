@@ -1,6 +1,8 @@
 class Doctor < ApplicationRecord
+
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
 
   has_many :slots, dependent: :destroy
   has_many :bookings, through: :slots
@@ -13,6 +15,18 @@ class Doctor < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :address, presence: true
   validates :description, presence: true
+
+  include PgSearch
+
+  pg_search_scope :global_search,
+    against: [:address],
+    associated_against: {
+      languages: [:name],
+      field: [:name]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 
 
   def week_slots(week_no)
