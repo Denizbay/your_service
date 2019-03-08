@@ -7,11 +7,17 @@ class Slot < ApplicationRecord
   validates :weekday, presence: true
   validates :week_number, presence: true
 
+  validates :start_time, uniqueness: { scope: [:weekday, :week_number, :doctor_id] }
+
   def is_available?
     !self.booking
   end
 
   def pretty_time
     start_time.strftime('%l:%M %p')
+  end
+
+  def hour_position
+    start_time.hour - 6
   end
 end
