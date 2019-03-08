@@ -1,14 +1,31 @@
 
 
-<%= form_tag("fan_groups", method: :get, class: "search-engine") do %>
-<div class="box">
-  <%= text_field_tag :city,
-    params[:city],
-    class: "form-control", id: "booking_address",
-    placeholder: "Speciality?"
-  %>
+    <%= form_tag(doctors_path, method: :get, class: "search-filter") do %>
+    <div class="box">
+    <div class="filter-tag">
+      <%#= label_tag(:city, "Choose city") %>
+      <%= text_field_tag :city, "", placeholder: 'Select City', class: "form-control" %>
+    </div>
 
-<div><%= submit_tag(value = "Find your Doctor")%></div>
+    <div class="filter-tag">
+      <%#= label_tag(:field_id, "Choose field", class: "form-group") %>
+      <%= select_tag(:field_id, options_for_select(Field.pluck(:name, :id)), prompt: 'Select Field', class: "form-control") %>
+    </div>
+
+    <div class="filter-tag">
+      <%#= label_tag(:language_id, "Choose language", class: "form-group") %>
+      <%= select_tag(:language_id, options_for_select(Language.pluck(:name, :id)), prompt: 'Select Language', class: "form-control") %>
+    </div>
+
+    <div class="filter-tag">
+      <%= submit_tag 'submit', class: "btn btn-primary" %>
+    </div>
 </div>
-<% end %>
+    <% end -%>
+
+
+
+
+
+
 
