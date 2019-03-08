@@ -1,5 +1,5 @@
 .search-filter {
-
+  display: flex;
     align-items: center;
     flex-direction: row;
     box-sizing: border-box;
@@ -11,9 +11,6 @@
     border-radius: 0.25rem;
     padding: 10px;
     margin-top: 10px;
-
-
-
 }
 
 .filter-tag {
