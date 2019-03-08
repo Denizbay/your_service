@@ -6,9 +6,10 @@ file = File.read "db/address_clean.json"
 data = JSON.parse(file)
 
 
+DoctorLanguage.destroy_all
+Booking.destroy_all
 Slot.destroy_all
 Doctor.destroy_all
-DoctorLanguage.destroy_all
 Language.destroy_all
 Field.destroy_all
 
@@ -40,7 +41,7 @@ count = 0
   email_surgeont = Faker::Internet.email(surgeont_name)
 
   doctor = Doctor.create!(
-    name: surgeont_name,
+    name: "Dr. #{surgeont_name}",
     email: email_surgeont,
     field: [Andrology, Gynaecology, General, Dermatology].sample,
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, laudantium.",
@@ -48,15 +49,20 @@ count = 0
     )
   DoctorLanguage.create!(doctor: doctor, language: [en, es, ma, fr].sample)
   puts "Creating Slot for doctor #{surgeont_name}"
-  1000.times do
-    start_time = (9..18).to_a.map { |hour| Time.new(0,1,1,hour)}.sample
+  20.times do
+    start_time = (9..16).to_a.map { |hour| Time.new(0,1,1,hour)}.sample
     week_no = (10..11).to_a.sample
-    slot =  Slot.where(doctor: doctor, start_time: start_time, week_number: week_no).first
+    week_day = rand(1..5)
+    slot =  Slot.where(doctor: doctor, start_time: start_time, week_number: week_no, weekday: week_day).first
     next if slot
-    Slot.create!(
+    p slot
+    p start_time
+    p week_day
+    p week_no
+    Slot.create(
       start_time: start_time,
       duration: 1,
-      weekday: rand(1..5),
+      weekday: week_day,
       week_number: week_no,
       doctor: doctor
       )
