@@ -1,24 +1,24 @@
 
 
-    <%= form_tag(doctors_path, method: :get, class: "search-filter") do %>
+    <%= form_tag(doctors_path, method: :get) do %>
     <div class="box">
     <div class="filter-tag">
       <%#= label_tag(:city, "Choose city") %>
       <%= text_field_tag :city, "", placeholder: 'Select City', class: "form-control" %>
     </div>
 
-    <div class="filter-tag">
+    <div>
       <%#= label_tag(:field_id, "Choose field", class: "form-group") %>
       <%= select_tag(:field_id, options_for_select(Field.pluck(:name, :id)), prompt: 'Select Field', class: "form-control") %>
     </div>
 
-    <div class="filter-tag">
+    <div >
       <%#= label_tag(:language_id, "Choose language", class: "form-group") %>
       <%= select_tag(:language_id, options_for_select(Language.pluck(:name, :id)), prompt: 'Select Language', class: "form-control") %>
     </div>
 
-    <div class="filter-tag">
-      <%= submit_tag 'submit', class: "btn btn-primary" %>
+    <div >
+      <%= submit_tag 'submit', class: "btn-search" %>
     </div>
 </div>
     <% end -%>
