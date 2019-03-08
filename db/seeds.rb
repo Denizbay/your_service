@@ -1,4 +1,5 @@
 require 'faker'
+require 'faker'
 require "json"
 
 file = File.read "db/address_clean.json"

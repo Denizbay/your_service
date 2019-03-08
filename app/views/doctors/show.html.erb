@@ -3,7 +3,7 @@
   <div class="flex-left">
     <div class="doctor-show-1 doctor-show">
     <%= image_tag "logo.png", alt: "alttext" %>
-    <h1><strong>Doctor.name</strong></h1>
+    <h1><strong>doctor.name</strong></h1>
     <p>Rating</p>
     <p>#</p>
     <h5>Spec</h5>
@@ -14,7 +14,6 @@
       <a href="#">Overview</a>
       <a href="#">Reviews</a>
     </div>
-
 
     <div class="doctor-show-3 doctor-show">
 
@@ -34,3 +33,14 @@
   </div>
  </div>
  </div>
+
+
+
+<div class="container">
+     <% @doctor.reviews.each do |review|   %>
+    <%= review.content  %>
+    <% review.stars.times do |star| %>
+     <i class="fas fa-star"></i>
+    <% end %>
+    <% end %>
+</div>
