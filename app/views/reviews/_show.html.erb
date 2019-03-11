@@ -1,2 +1,12 @@
-<p><%= review.content %></p>
-<p><%= review.stars %></p>
+  <% if @booking.review.blank? %>
+    Please leave a review for <%= doctor.name %>
+   <%= render 'reviews/form', booking: booking, review: review %>
+  <% end %>
+
+  <% @doctor.reviews.each do |review_doc|   %>
+     <%= review_doc.content  %>
+      <% review_doc.stars.times do |star| %>
+          <i class="fas fa-star"></i>
+      <% end %>
+  <% end %>
+
