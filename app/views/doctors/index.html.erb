@@ -50,26 +50,29 @@
         <div class="col-xs-12 col-sm-12 col-md-12" style="padding-right: 20px">
 
           <div class="notification">
+            <% if doctor.image.nil? %>
+                <img src="<%= image_path('billy.jpg') %>" class="avatar-large"/>
+            <% else %>
+            <img src='<%= image_path(doctor.image) %>' class="avatar-large"/>
+            <% end %>
+            <%#= cl_image_tag(doctor.image)%>
 
-            <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large"/>
-            <%#= cl_image_tag(fan_group.photo)%>
             <div class="notification-content">
               <h3><%= link_to doctor.name, doctor_path(doctor) %> </h2>
                 <h4> <%= doctor.field.name %> </h3>
                   <p> TO DO review.stars <%#= doctor.review.stars %> </p>
 
                   <% doctor.languages.each do |language| %>
-        <% if language.name == "French" %>
-        <%= image_tag "Flag_of_France.svg", alt: "alttext", class: "language-img" %>
-        <% elsif language.name == "English" %>
-        <%= image_tag "logo.png", alt: "alttext", class: "language-img" %>
-        <% elsif language.name == "Spanish" %>
-        <%= image_tag "logo.png", alt: "alttext", class: "language-img" %>
-        <% else language.name == "Mandarin" %>
-        <%= image_tag "logo.png", alt: "alttext", class: "language-img" %>
-      <% end %>
-      <% end %>
-
+                  <% if language.name == "French" %>
+                  <%= image_tag "Flag_of_France.svg", alt: "alttext", class: "language-img" %>
+                  <% elsif language.name == "English" %>
+                  <%= image_tag "logo.png", alt: "alttext", class: "language-img" %>
+                  <% elsif language.name == "Spanish" %>
+                  <%= image_tag "logo.png", alt: "alttext", class: "language-img" %>
+                  <% else language.name == "Mandarin" %>
+                  <%= image_tag "logo.png", alt: "alttext", class: "language-img" %>
+                <% end %>
+                <% end %>
 
                   <h5> <%= doctor.address %> </h3>
                   </div>
