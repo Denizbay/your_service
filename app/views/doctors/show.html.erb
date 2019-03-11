@@ -6,8 +6,8 @@
     <h1><strong><%=  @doctor.name %></strong></h1>
     <p>Rating</p>
     <p>#</p>
-    <h5>Spec</h5>
-    <h5>Location</h5>
+    <h5><%= @doctor.field.name %></h5>
+    <h5><%= @doctor.address %></h5>
     </div>
 
     <div class="doctor-show-2 doctor-show">
@@ -21,21 +21,38 @@
      <h4>Professional Statement</h4>
      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo asperiores porro ipsudebitis modi dolore optio, repellendus minima tempora beatae harum fuga iste animi efugit odit enim. Iure, perspiciatis?</p>
      <h4>Language</h4>
-     <p>English</p>
+     <% @doctor.languages.each do |language| %>
+        <% if language.name == "French" %>
+        <%= image_tag "Flag_of_France.svg", alt: "alttext", class: "language-img" %>
+        <% elsif language.name == "English" %>
+        <%= image_tag "logo.png", alt: "alttext", class: "language-img" %>
+        <% elsif language.name == "Spanish" %>
+        <%= image_tag "logo.png", alt: "alttext", class: "language-img" %>
+        <% else language.name == "Mandarin" %>
+        <%= image_tag "logo.png", alt: "alttext", class: "language-img" %>
+      <% end %>
+      <% end %>
 
-         <% @doctor.reviews.each do |review|   %>
+    </div>
+
+  </div>
+
+  <div class="flex-right">
+
+  <div class="booking doctor-show">
+    <%= render 'week_view' %>
+  </div>
+
+  <div class="right-down doctor-show">
+    <h2>Reviews</h2>
+    <% @doctor.reviews.each do |review|   %>
         <%= review.content  %>
         <% review.stars.times do |star| %>
          <i class="fas fa-star"></i>
         <% end %>
         <% end %>
 
-    </div>
-
   </div>
-
-  <div class="flex-right doctor-show">
-    <%= render 'week_view' %>
   </div>
  </div>
 

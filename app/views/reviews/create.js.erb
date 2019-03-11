@@ -1,17 +1,11 @@
-function refreshForm(innerHTML) {
-  const newReviewForm = document.getElementById('new_review');
+function showReview(innerHTML) {
+  const newReviewForm = document.getElementById('reviews');
   newReviewForm.innerHTML = innerHTML;
 }
 
-function addReview(reviewHTML) {
-  const reviews = document.getElementById('reviews');
-  reviews.insertAdjacentHTML('beforeend', reviewHTML);
-}
-
 <% if @review.errors.any? %>
-  refreshForm('<%= j render "reviews/form", booking: @booking, review: @review %>');
+    showReview('<%= j render "reviews/show", doctor: @doctor, booking: @booking, review: @review %>');
 <% else %>
-  addReview('<%= j render "reviews/show", review: @review %>');
-  refreshForm('<%= j render "reviews/form", booking: @booking, review: Review.new %>');
+    showReview('<%= j render "reviews/show", doctor: @doctor, booking: @booking, review: @review %>');
 <% end %>
 

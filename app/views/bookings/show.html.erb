@@ -15,11 +15,6 @@
   </div>
 </div>
 
-
-<!--   <%= render 'reviews/form', booking: @booking, review: @review %>
-  <div id="reviews">
-  <% if @booking.review.blank? %>
-    Be the first to leave a review for <%= @doctor.name %>
-  <% else %>
-      <%= render 'reviews/show', review: @booking.review %>
-  <% end %>
+<div id="reviews">
+    <%= render 'reviews/show', doctor: @doctor, booking: @booking, review: @review %>
+</div>
