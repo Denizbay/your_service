@@ -14,7 +14,7 @@
       <%#= raise %>
       <div style="<%= "grid-column: #{s.weekday} / #{s.weekday}; grid-row: #{s.hour_position} / #{s.hour_position};" %>">
         <%= radio_button_tag "booking[slot_id]", s.id %>
-        <%= label_tag "booking_slot_id_#{s.id}", s.pretty_time %>
+        <%= label_tag "booking_slot_id_#{s.id}", s.pretty_time, class: "btn btn-calendar" %>
       </div>
       <% end %>
     </div>

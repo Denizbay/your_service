@@ -14,7 +14,7 @@ class Slot < ApplicationRecord
   end
 
   def pretty_time
-    start_time.strftime('%l:%M %p')
+    start_time.strftime('%H:%M')
   end
 
   def hour_position
