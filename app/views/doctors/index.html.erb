@@ -5,6 +5,7 @@
     margin: 20px;" >
 
     <%= form_tag(doctors_path, method: :get, class: "search-filter") do %>
+
     <div class="filter-tag">
       <%#= label_tag(:city, "Choose city") %>
       <%= text_field_tag :city, "", placeholder: 'Select City', class: "form-control" %>
