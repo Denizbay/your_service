@@ -20,7 +20,7 @@ en = Language.create!(name: 'English')
 es = Language.create!(name: 'Spanish')
 ma = Language.create!(name: 'Mandarin')
 fr = Language.create!(name: 'French')
-
+de = Language.create!(name: 'German')
 
 
 puts 'Creating Fields'
@@ -56,6 +56,11 @@ DoctorLanguage.create(
   language: fr
   )
 
+DoctorLanguage.create(
+  doctor: doctor1,
+  language: de
+  )
+
 20.times do
   start_time = (9..16).to_a.map { |hour| Time.new(0,1,1,hour)}.sample
   week_no = (10..11).to_a.sample
@@ -88,6 +93,11 @@ DoctorLanguage.create(
 DoctorLanguage.create(
   doctor: doctor2,
   language: es
+  )
+
+DoctorLanguage.create(
+  doctor: doctor2,
+  language: de
   )
 
 20.times do
@@ -163,6 +173,11 @@ DoctorLanguage.create(
   language: ma
   )
 
+DoctorLanguage.create(
+  doctor: doctor4,
+  language: de
+  )
+
 20.times do
   start_time = (9..16).to_a.map { |hour| Time.new(0,1,1,hour)}.sample
   week_no = (10..11).to_a.sample
@@ -195,6 +210,11 @@ DoctorLanguage.create(
 DoctorLanguage.create(
   doctor: doctor5,
   language: ma
+  )
+
+DoctorLanguage.create(
+  doctor: doctor5,
+  language: de
   )
 
 20.times do
