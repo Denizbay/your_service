@@ -12,14 +12,18 @@
       <div>Fri</div>
       <% @doctor.week_slots(@week_number).each_with_index do |s, idx| %>
       <%#= raise %>
-        <div style="<%= "grid-column: #{s.weekday} / #{s.weekday}; grid-row: #{s.hour_position} / #{s.hour_position};" %>">
-          <%= radio_button_tag "booking[slot_id]", s.id %>
-          <%= label_tag "booking_slot_id_#{s.id}", s.pretty_time %>
-        </div>
+      <div style="<%= "grid-column: #{s.weekday} / #{s.weekday}; grid-row: #{s.hour_position} / #{s.hour_position};" %>">
+        <%= radio_button_tag "booking[slot_id]", s.id %>
+        <%= label_tag "booking_slot_id_#{s.id}", s.pretty_time %>
+      </div>
       <% end %>
     </div>
 
-    <%= f.submit "Submit a booking", class: "btn btn-primary" %>
+    <%#= f.submit "Submit a booking", class: "btn btn-primary" %>
+    <%= link_to "Book now", "#", class: "btn btn-flat" %>
+
     <% end %>
   </div>
 </div>
+
+
