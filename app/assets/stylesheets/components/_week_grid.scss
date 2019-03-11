@@ -4,7 +4,7 @@
   height: 300px;
   grid-template-columns: repeat(5, auto);
   grid-template-rows: repeat(9, auto);
-  justify-items: left;
+  justify-items: center;
 
   * {
     font-size: 12px;
@@ -15,6 +15,6 @@
   }
 
   input[type="radio"]:checked ~ label {
-    background: yellow;
+    background: #ffa1ac;
   }
 }
