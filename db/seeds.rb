@@ -14,6 +14,7 @@ male_pic = ["adrian.jpg", "andrey.jpeg", "arbi.jpeg", "aurel.jpg", "david.jpg", 
 
 
 DoctorLanguage.destroy_all
+Review.destroy_all
 Booking.destroy_all
 Slot.destroy_all
 Doctor.destroy_all

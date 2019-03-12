@@ -1,3 +1,4 @@
+<div class="background">
 <div class style="    background-color: #fff;
     background-clip: border-box;
   /*  border: 1px solid rgba(0, 0, 0, 0.125);*/
@@ -63,16 +64,18 @@
                   <p> TO DO review.stars <%#= doctor.review.stars %> </p>
 
                   <% doctor.languages.each do |language| %>
-                  <% if language.name == "French" %>
-                  <%= image_tag "Flag_of_France.svg", alt: "alttext", class: "language-img" %>
-                  <% elsif language.name == "English" %>
-                  <%= image_tag "logo.png", alt: "alttext", class: "language-img" %>
-                  <% elsif language.name == "Spanish" %>
-                  <%= image_tag "logo.png", alt: "alttext", class: "language-img" %>
-                  <% else language.name == "Mandarin" %>
-                  <%= image_tag "logo.png", alt: "alttext", class: "language-img" %>
-                <% end %>
-                <% end %>
+
+        <% if language.name == "French" %>
+        <%= image_tag "Flag_of_France.svg", alt: "alttext", class: "language-img" %>
+        <% elsif language.name == "English" %>
+        <%= image_tag "uk-flag.png", alt: "alttext", class: "language-img" %>
+        <% elsif language.name == "Spanish" %>
+        <%= image_tag "Flag_of_Spain.svg", alt: "alttext", class: "language-img" %>
+        <% else language.name == "Mandarin" %>
+        <%= image_tag "mandarin.svg", alt: "alttext", class: "language-img" %>
+      <% end %>
+      <% end %>
+
 
                   <h5> <%= doctor.address %> </h3>
                   </div>
@@ -99,5 +102,6 @@
     </div>
 
     <% end %>
+    </div>
 
 
