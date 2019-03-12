@@ -1,33 +1,12 @@
-<div class="background">
+<div>
 <div class style="    background-color: #fff;
     background-clip: border-box;
   /*  border: 1px solid rgba(0, 0, 0, 0.125);*/
     border-radius: 0.25rem;
-    margin: 20px;
     position: relative;" >
-
-    <%= form_tag(doctors_path, method: :get, class: "search-filter") do %>
-
-    <div class="filter-tag">
-      <%#= label_tag(:city, "Choose city") %>
-      <%= text_field_tag :city, "", placeholder: 'Select City', class: "form-control" %>
-    </div>
-
-    <div class="filter-tag">
-      <%#= label_tag(:field_id, "Choose field", class: "form-group") %>
-      <%= select_tag(:field_id, options_for_select(Field.pluck(:name, :id)), prompt: 'Select Field', class: "form-control width", style: "width: 200px;") %>
-    </div>
-
-    <div class="filter-tag">
-      <%#= label_tag(:language_id, "Choose language", class: "form-group") %>
-      <%= select_tag(:language_id, options_for_select(Language.pluck(:name, :id)), prompt: 'Select Language', class: "form-control") %>
-    </div>
-
-    <div class="filter-tag">
-      <%= submit_tag 'submit', class: "form-control btn-search2" %>
-    </div>
-
-    <% end -%>
+    <div class="index-form">
+      <%= render "form" %>
+   </div>
 
 </div>
 
@@ -38,55 +17,62 @@
   </div>
 <% else %>
 
+<div class="index-content">
+<div class="main-container" >
 
-<div class="main-container" style="padding-top: 10px">
-
-  <div class="cards">
-
+  <div id="index-cards" class="cards">
+  <h1 class="title">You have <b>64</b> match your search</h1>
     <div class="cards-container">
-
       <div class="row">
-
         <% @doctors.shuffle.each do |doctor| %>
         <div class="col-xs-12 col-sm-12 col-md-12" style="padding-right: 20px">
-
+          <%= link_to doctor_path(id: doctor.id) do %>
           <div class="notification">
-            <% if doctor.image.nil? %>
-                <img src="<%= image_path('billy.jpg') %>" class="avatar-large"/>
+          <div class="left-card-content">
+             <% if doctor.image.nil? %>
+                <img style="margin-bottom: 21px;" src="<%= image_path('billy.jpg') %>" class="avatar-large"/>
             <% else %>
-            <img src='<%= image_path(doctor.image) %>' class="avatar-large"/>
+                <img style="margin-bottom: 21px;" src='<%= image_path(doctor.image) %>' class="avatar-large"/>
             <% end %>
-            <%#= cl_image_tag(doctor.image)%>
-
-            <div class="notification-content">
-              <h3><%= link_to doctor.name, doctor_path(doctor) %> </h2>
-                <h4> <%= doctor.field.name %> </h3>
-                  <p> TO DO review.stars <%#= doctor.review.stars %> </p>
-
-                  <% doctor.languages.each do |language| %>
-
-                  <% if language.name == "French" %>
+            <div class="flag-container">
+              <% doctor.languages.each do |language| %>
+                <% if language.name == "French" %>
+                <div>
                   <%= image_tag "Flag_of_France.svg", alt: "alttext", class: "language-img" %>
-                  <% elsif language.name == "English" %>
-                  <%= image_tag "uk-flag.png", alt: "alttext", class: "language-img" %>
-                  <% elsif language.name == "Spanish" %>
+                </div>
+                <% elsif language.name == "English" %>
+                <div>
+                   <%= image_tag "uk-flag.png", alt: "alttext", class: "language-img" %>
+                </div>
+                <% elsif language.name == "Spanish" %>
+                <div>
                   <%= image_tag "Flag_of_Spain.svg", alt: "alttext", class: "language-img" %>
-                  <% else language.name == "Mandarin" %>
+                 </div>
+                <% else language.name == "Mandarin" %>
+                <div>
                   <%= image_tag "mandarin.svg", alt: "alttext", class: "language-img" %>
-                  <% end %>
-                  <% end %>
+                </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
 
-                  <h5> <%= doctor.address %> </h3>
+          <div class="right-card-content">
+            <div class="notification-content">
+                  <h4 class="doc-spec"> <%= doctor.field.name %> </h4>
+                  <h3 class="doc-field"><%= doctor.name %> </h3>
+                  <p> TO DO review.stars <%#= doctor.review.stars %> </p>
+                  <h5><%= doctor.address %> </h5>
                   </div>
                 </div>
               </div>
-
-              <% end %>
+            </div>
+            <% end %>
+          <% end %>
 
             </div>
 
           </div>
-
         </div>
 
 
@@ -102,5 +88,5 @@
 
     <% end %>
     </div>
-
+</div>
 

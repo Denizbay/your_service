@@ -1,2 +1,27 @@
 // Import page-specific CSS files here.
 @import "home";
+
+a {
+  color: grey;
+  text-decoration: none !important;
+  &:hover {
+  color: grey;
+  }
+}
+
+.left-card-content {
+  border-right: 1px solid #ddd;
+  padding: 15px;
+}
+
+
+.doc-field {
+ margin-top: 10px;
+}
+
+.doc-spec {
+  letter-spacing: 2px;
+  font-size: 18px;
+  color: #40b1cd;
+  text-transform: uppercase;
+}

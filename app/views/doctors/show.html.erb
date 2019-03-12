@@ -52,14 +52,14 @@
 <!-- <div class="right-down doctor-show">
 
   <div class="carousel" data-flickity='{ "wrapAround": true }'>
-    <% @doctor.reviews.each do |review|   %>
+    <% @doctor.reviews.each #do |review|   %>
         <div class="carousel-cell">
           <%= review.content  %>
-          <% review.stars.times do |star| %>
+          <% review.stars.times #do |star| %>
           <i class="fas fa-star"></i>
-          <% end %>
+          <% #end %>
         </div>
-    <% end %>
+    <% #end %>
   </div>
 </div> -->
 
