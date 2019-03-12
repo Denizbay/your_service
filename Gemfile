@@ -10,6 +10,8 @@ gem 'rails', '5.2.2'
 gem 'redis'
 gem 'algoliasearch-rails'
 gem 'pg_search'
+gem 'cloudinary', '~> 1.9.1'
+
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
