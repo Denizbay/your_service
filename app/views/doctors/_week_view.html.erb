@@ -18,28 +18,26 @@
 
     <%#= raise %>
     <% 5.times do |i| %>
-    <% 8.times do |x| %>
-    <%# @doctor.week_slots(@week_number).each_with_index do |s, idx| %>
-    <% slot = @doctor.week_slots(@week_number).find { |s| s.weekday == (i + 1) && s.hour_position == (x + 1)} %>
-    <% if slot.present? %>
-    <div style="<%= "grid-column: #{slot.weekday} / #{slot.weekday + 1}; grid-row: #{slot.hour_position} / #{slot.hour_position + 1};" %>">
-      <%= radio_button_tag "booking[slot_id]", slot.id %>
-      <%= label_tag "booking_slot_id_#{slot.id}", slot.pretty_time, class: "btn btn-calendar" %>
-    </div>
-    <% else %>
-    <div style="<%= "grid-column: #{i + 1} / #{i + 2}; grid-row: #{x + 2} / #{x + 3};" %>">
-      <span>-</span>
-    </div>
-    <% end %>
+      <% 8.times do |x| %>
+      <%# @doctor.week_slots(@week_number).each_with_index do |s, idx| %>
+        <% slot = @doctor.week_slots(@week_number).find { |s| s.weekday == (i + 1) && s.hour_position == (x + 1)} %>
+        <% if slot.present? %>
+          <div style="<%= "grid-column: #{slot.weekday} / #{slot.weekday + 1}; grid-row: #{slot.hour_position} / #{slot.hour_position + 1};" %>">
+            <%= radio_button_tag "booking[slot_id]", slot.id %>
+            <%= label_tag "booking_slot_id_#{slot.id}", slot.pretty_time, class: "btn btn-calendar" %>
+          </div>
+          <% else %>
+          <div style="<%= "grid-column: #{i + 1} / #{i + 2}; grid-row: #{x + 2} / #{x + 3};" %>">
+            <span>-</span>
+          </div>
+        <% end %>
 
 
-    <%#= f.submit "Submit a booking", class: "btn btn-primary" %>
-    <%= submit_tag 'Book appointment' , class: "btn btn-flat"%>
 
-    <%# end %>
+      <%# end %>
 
 
-    <% end %>
+      <% end %>
     <% end %>
 
   </div>
