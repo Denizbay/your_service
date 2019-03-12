@@ -1,4 +1,22 @@
-<div class="background">
+
+<div class="banner-show">
+  <div class="flexbox-top">
+    <div class="flex-top-left">
+      <%= image_tag "logo.png", alt: "alttext" %>
+    </div>
+    <div class="flex-top-right">
+      <div class="top">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+      </div>
+      <div class="down">
+      <h1><%= @doctor.name %></h1>
+      </div>
+      </div>
+  </div>
+</div>
+
+
  <div class="flexbox">
   <div class="flex-left">
     <div class="doctor-show-1 doctor-show">
@@ -18,20 +36,8 @@
     <div class="doctor-show-3 doctor-show">
 
 
-     <h4>Professional Statement</h4>
-     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo asperiores porro ipsudebitis modi dolore optio, repellendus minima tempora beatae harum fuga iste animi efugit odit enim. Iure, perspiciatis?</p>
-     <h4>Language</h4>
-     <% @doctor.languages.each do |language| %>
-        <% if language.name == "French" %>
-        <%= image_tag "Flag_of_France.svg", alt: "alttext", class: "language-img" %>
-        <% elsif language.name == "English" %>
-        <%= image_tag "logo.png", alt: "alttext", class: "language-img" %>
-        <% elsif language.name == "Spanish" %>
-        <%= image_tag "logo.png", alt: "alttext", class: "language-img" %>
-        <% else language.name == "Mandarin" %>
-        <%= image_tag "logo.png", alt: "alttext", class: "language-img" %>
-      <% end %>
-      <% end %>
+
+    <%= render "tabs" %>
 
     </div>
 
@@ -43,19 +49,23 @@
     <%= render 'week_view' %>
   </div>
 
-  <div class="right-down doctor-show">
-    <h2>Reviews</h2>
+<div class="right-down doctor-show">
+  <div class="carousel" data-flickity='{ "wrapAround": true }'>
     <% @doctor.reviews.each do |review|   %>
-        <%= review.content  %>
-        <% review.stars.times do |star| %>
-         <i class="fas fa-star"></i>
-        <% end %>
-        <% end %>
-
+        <div class="carousel-cell">
+          <%= review.content  %>
+          <% review.stars.times do |star| %>
+          <i class="fas fa-star"></i>
+          <% end %>
+        </div>
+    <% end %>
   </div>
+</div>
+
   </div>
  </div>
 
 
 
- </div>
+
+
