@@ -1,15 +1,17 @@
 .box{
-
   background-color: #d9edf7bd;
   padding: 18px;
-  margin-left: 50%;
   display: flex;
-  justify-content: space-between;
-  width: 110%;
+  justify-content: space-around;
   border-radius: 4px;
   height: 100%;
+}
 
-
+.banner {
+  form {
+    min-width: 1000px;
+    margin: auto;
+  }
 }
 
 .btn-search{
@@ -18,8 +20,7 @@
   border-radius: 4px;
   background: #ee4266;
   border-width: 0;
-  width: 110%;
-  margin-left: 50%;
+  width: 100%;
   margin-top: 5px;
 }
 
@@ -36,7 +37,7 @@
 
   color: white;
   font-size: 30px;
-  margin-left: 55%;
+  text-align: center;
   width: 100%;
   margin-top: 40px;
   font-weight: bold;
