@@ -33,4 +33,6 @@ class Doctor < ApplicationRecord
     slots.where(week_number: week_no).order(:start_time)
     #slots.where(week_number: week_no, weekday: Date.current.cwday).order(:start_time)
   end
+
+
 end
