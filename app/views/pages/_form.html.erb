@@ -1,27 +1,33 @@
 
 
-    <%= form_tag(doctors_path, method: :get) do %>
-    <div class="box">
-    <div class="filter-tag">
-      <%#= label_tag(:city, "Choose city") %>
-      <%= text_field_tag :city, "", placeholder: 'Select City', class: "form-control" %>
-    </div>
+<%= form_tag(doctors_path, method: :get) do %>
+<div class="box">
 
-    <div>
-      <%#= label_tag(:field_id, "Choose field", class: "form-group") %>
-      <%= select_tag(:field_id, options_for_select(Field.pluck(:name, :id)), prompt: 'Select Field', class: "form-control") %>
-    </div>
+  <div>
+    <%#= label_tag(:city, "Choose city") %>
+    <%= text_field_tag :city, "", placeholder: 'Select City', class: "form-control-mod" %>
+  </div>
 
-    <div >
-      <%#= label_tag(:language_id, "Choose language", class: "form-group") %>
-      <%= select_tag(:language_id, options_for_select(Language.pluck(:name, :id)), prompt: 'Select Language', class: "form-control") %>
-    </div>
+  <div>
+    <%#= label_tag(:field_id, "Choose field", class: "form-group") %>
+    <%= select_tag(:field_id, options_for_select(Field.pluck(:name, :id)), prompt: 'Select Field', class: "form-control-mod") %>
+  </div>
 
-    <div >
-      <%= submit_tag 'submit', class: "btn-search" %>
-    </div>
+  <div >
+    <%#= label_tag(:language_id, "Choose language", class: "form-group") %>
+    <%= select_tag(:language_id, options_for_select(Language.pluck(:name, :id)), prompt: 'Select Language', class: "form-control-mod") %>
+  </div>
+
+
 </div>
-    <% end -%>
+<div >
+  <%= submit_tag 'Submit search', class: "btn-search" %>
+</div>
+
+<div class="header-one">Find the doctor that speaks your language.</div>
+
+
+<% end -%>
 
 
 

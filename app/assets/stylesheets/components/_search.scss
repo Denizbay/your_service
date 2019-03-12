@@ -1,22 +1,27 @@
 .box{
 
-    background-color: rgba(16, 231, 220, 0.8);
-    padding: 18px;
-    margin-left: 32%;
-    display: flex;
-    justify-content: space-around;
-    width: 157%;
-    border-radius: 10px;
+  background-color: #d9edf7bd;
+  padding: 18px;
+  margin-left: 50%;
+  display: flex;
+  justify-content: space-between;
+  width: 110%;
+  border-radius: 4px;
+  height: 100%;
+
+
 }
 
 .btn-search{
-   width: 141%;
-   height: 115%;
-  background-color: #F79E02;
   color: white;
-  border-radius: 10px;
+  padding: 5px;
+  border-radius: 4px;
+  background: #ee4266;
+  border-width: 0;
+  width: 110%;
+  margin-left: 50%;
+  margin-top: 5px;
 }
-
 
 .btn-search2{
   border: none;
@@ -25,4 +30,15 @@
   border-radius: 10px;
   width: 150px;
 
+}
+
+.header-one {
+
+  color: white;
+  font-size: 30px;
+  margin-left: 55%;
+  width: 100%;
+  margin-top: 40px;
+  font-weight: bold;
+  text-decoration: underline;
 }
