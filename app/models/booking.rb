@@ -10,8 +10,5 @@ class Booking < ApplicationRecord
   def time
     slot.start_time.strftime(' %l %M %p')
   end
-
-
 end
-
 
