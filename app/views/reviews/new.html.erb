@@ -1,1 +1,3 @@
-<h1>test</h1>
+<h1>Review your appointment with <%= @doctor.name %></h1>
+
+<%= render "reviews/form", review: @review, booking: @booking %>

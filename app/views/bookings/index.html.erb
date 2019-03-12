@@ -2,13 +2,21 @@
 
   <h2>These are all your bookings:</h2>
 
-
-
   <% current_user.bookings.each do |booking| %>
-  <li>  Dr. <%= booking.slot.doctor.name %> | Scheduled for:  <%=  booking.date %> (<%= booking.time %>)
-  <%= link_to "Delete", booking, method: :delete, remote: true %></li>
-  <% end %>
+    <div>
+      Dr. <%= booking.slot.doctor.name %> |
+      Scheduled for:  <%=  booking.date %> (<%= booking.time %>)
+      <%= link_to "Delete", booking_path, method: :delete, remote: true %>
 
+      <% if booking.review %>
+        <div>
+          <%= render 'reviews/review', review: booking.review %>
+        </div>
+      <% else %>
+        <%= link_to "Review your booking", new_booking_review_path(booking)  %>
+      <% end %>
+    </div>
+  <% end %>
 
   <%= link_to "Schedule another appointment", doctors_path %>
 

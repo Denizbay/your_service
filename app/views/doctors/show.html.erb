@@ -10,6 +10,7 @@
         <i class="fas fa-star"></i>
       </div>
       <div class="down">
+        <h5><%= @doctor.field.name %></h5>
       <h1><%= @doctor.name %></h1>
       </div>
       </div>
@@ -20,36 +21,31 @@
  <div class="flexbox">
   <div class="flex-left">
     <div class="doctor-show-1 doctor-show">
-
-    <h1><strong><%=  @doctor.name %></strong></h1>
-    <p>Rating</p>
-    <p>#</p>
-    <h5><%= @doctor.field.name %></h5>
-    <h5><%= @doctor.address %></h5>
+      <%= render "tabs" %>
     </div>
-
+<!--
     <div class="doctor-show-2 doctor-show">
       <a href="#">Overview</a>
       <a href="#">Reviews</a>
-    </div>
+    </div> -->
 
-    <div class="doctor-show-3 doctor-show">
+<!--     <div class="doctor-show-3 doctor-show">
 
 
 
     <%= render "tabs" %>
 
-    </div>
+    </div> -->
 
   </div>
 
   <div class="flex-right">
 
-  <div class="booking doctor-show">
+  <div class="booking doctor-show ">
     <%= render 'week_view' %>
   </div>
 
-<div class="right-down doctor-show">
+<!-- <div class="right-down doctor-show">
   <div class="carousel" data-flickity='{ "wrapAround": true }'>
     <% @doctor.reviews.each do |review|   %>
         <div class="carousel-cell">
@@ -60,7 +56,7 @@
         </div>
     <% end %>
   </div>
-</div>
+</div> -->
 
   </div>
  </div>

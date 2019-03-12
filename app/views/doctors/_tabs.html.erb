@@ -1,12 +1,17 @@
 <nav>
-  <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
-    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
-    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+  <div class="nav nav-tabs active" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true" style="
+    margin-right: 23%;">Overview</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false" style="
+    margin-right: 24%;">Review</a>
+    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Location</a>
   </div>
+
+
+
 </nav>
 <div class="tab-content" id="nav-tabContent">
-  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+  <div class="tab-pane fade active in" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
           <h4>Professional Statement</h4>
          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo asperiores porro ipsudebitis modi dolore optio, repellendus minima tempora beatae harum fuga iste animi efugit odit enim. Iure, perspiciatis?</p>
          <h4>Language</h4>
@@ -22,8 +27,28 @@
       <% end %>
       <% end %>
   </div>
+
+
+
   <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-  zzzzzzzzzzzzzzzzzzzz
+    <div class="carousel">
+    <% @doctor.reviews.each do |review|   %>
+        <div class="carousel-cell">
+          <% review.stars.times do |star| %>
+          <i class="fas fa-star"></i>
+          <% end %>
+          <%= review.content  %>
+        </div>
+    <% end %>
+  </div>
+
+
 </div>
-  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">4567890237</div>
+  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+    <div
+        id="map"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
 </div>
