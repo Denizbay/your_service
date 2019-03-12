@@ -2,6 +2,9 @@
 
 .form-ddown-container {
     position: relative;
+    margin: 0 15px;
+    border-radius: 0;
+    border-bottom: solid 4px #a5d7e4;
     i {
       right: 9px;
       top: 10px;
@@ -9,3 +12,10 @@
       position: absolute;
     }
   }
+
+.index-content {
+  .main-container {
+    margin: 0;
+    padding: 0
+  }
+}

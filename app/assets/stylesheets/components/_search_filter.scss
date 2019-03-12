@@ -27,7 +27,6 @@
 
 
 .form-control-mod {
-  -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
   border: none;
@@ -42,10 +41,10 @@
   color: black;
   background-color: white;
   background-image: none;
-  border-style: solid;
-  border-width: 1px;
-  border-color: grey;
-  border-radius: 6px;
+  /* border-style: solid; */
+  /* border-width: 1px; */
+  border-color: white;
+  border-radius: 1px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   font-weight: normal;
@@ -59,5 +58,28 @@
   color: black;
   font-size: 15px;
 
+}
+
+.flag-container {
+    display: inline;
+    align-items: center;
+}
+
+
+.index-form {
+  background-color: #f4f4f4;
+  .box {
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  .btn-search {
+    color: white;
+    padding: 9px 51px;
+    margin-top: 0px;
+    border-radius: 4px;
+    background: #ee4266;
+    border-width: 0;
+    width: 100%;
+  }
 }
 

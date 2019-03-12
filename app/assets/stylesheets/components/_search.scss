@@ -1,10 +1,14 @@
 .box{
-  background-color: #d9edf7bd;
+  background-color: #f1f9fc;
+  box-shadow: 1px 5px 12px 0px #30303026;
   padding: 18px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   border-radius: 4px;
   height: 100%;
+  margin: auto;
+  width: 800px;
+  opacity: 1;
 }
 
 .banner {
@@ -16,15 +20,15 @@
 
 .btn-search{
   color: white;
-  padding: 5px;
+  padding: 14px 80px;
   border-radius: 4px;
   background: #ee4266;
   border-width: 0;
-  width: 100%;
+  width: 30%;
   margin-top: 5px;
 }
 
-.btn-search2{
+.btn-search2 {
   border: none;
   background-color: #F79E02;
   color: white;
@@ -34,11 +38,17 @@
 }
 
 .header-one {
-
-  color: white;
-  font-size: 30px;
-  text-align: center;
-  width: 100%;
-  margin-top: 40px;
-  font-weight: bold;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 53px;
+    margin-bottom: 24px;
+    max-width: 710PX;
+    width: 100%;
+    margin: auto;
+    text-shadow: 2px 1px 20px #ffffff;
+    margin-top: 40px;
+    color: #2f4773;
+    font-weight: 900;
 }

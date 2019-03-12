@@ -16,6 +16,7 @@ class DoctorsController < ApplicationController
         lat: doctor.latitude,
         infoWindow: render_to_string(partial: "/doctors/info_window", locals: { doctor: doctor })
       }
+
     end
   end
 
