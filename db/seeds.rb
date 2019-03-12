@@ -5,12 +5,19 @@ require "json"
 file = File.read "db/address_clean.json"
 data = JSON.parse(file)
 
-female_pic = ["alice.jpg", "avalon.jpg", "claire.jpeg", "clara.jpeg", "diane.jpeg", "elise.jpeg",
-  "emna.jpg", "irina.jpg", "kirsty.png", "laura.jpeg", "lonneke.jpeg", "louise.jpg", "manon.jpeg",
-  "margo.jpeg", "morgane.jpeg", "rebekah.jpg", "sarah.jpg", "yukari.jpg", "zuz.jpeg"]
-male_pic = ["adrian.jpg", "andrey.jpeg", "arbi.jpeg", "aurel.jpg", "david.jpg", "diego.jpeg", "dimi.jpeg", "emri.jpeg", "francois.jpeg", "gianluca.png",
-  "jason.jpg", "leon.jpeg", "mahesh.jpeg", "martin.jpg", "max1.jpeg", "thomas.jpeg",
-   "tom.png"]
+female_pic = ["alice.jpg", "avalon.jpg", "celine.png","clarissa.jpg", "claire.jpeg", "clara.jpeg",
+  "carly.jpeg", "diane.jpeg", "elise.jpeg", "emna.jpg", "irina.jpg", "ivy.jpeg", "jessica.png",
+  "julia.jpeg", "juliakim.jpeg", "kirsty.png", "krisztina.jpg","laura.jpeg", "lea.png", "lonneke.jpeg",
+   "louise.jpg", "madifa.png", "manon.jpeg", "margo.jpeg", "margarita.jpeg", "marina.jpg",
+   "mathilde.jpg", "mirha.jpeg", "morgane.jpeg", "nathalia.jpg", "nina.jpeg", "orianne.jpeg",
+   "olya.jpeg", "paphada.jpg", "rebecca.jpeg", "rebekah.jpg", "sharon.jpeg", "sarah.jpg",
+   "serena.png", "sophie.jpeg", "tatiana.jpg", "yukari.jpg", "zuz.jpeg"]
+male_pic = ["adrian.jpg", "andrey.jpeg", "andre.jpg", "arbi.jpeg", "aurel.jpg", "darrick.jpeg",
+  "david.jpg", "diego.jpeg", "dimi.jpeg", "donatien.jpg", "emri.jpeg", "francois.jpeg", "frank.jpeg",
+   "gianluca.png", "guillaume.jpg", "grant.jpg", "james.jpeg", "jason.jpg", "jerome.jpeg", "leon.jpeg",
+   "lilian.jpeg", "loic.jpeg", "mahesh.jpeg", "martin.jpg", "max1.jpeg", "nino.jpeg", "nicolas.jpeg",
+    "pierre.jpg", "reda.png", "sebastien.jpeg", "salim.jpeg", "sou.jpg", "suraj.jpg", "tim.jpg",
+     "timothee.jpeg", "thomas.jpeg", "tom.png", "victor.jpeg", "vincent.jpeg", "wesley.jpg"]
 
 
 DoctorLanguage.destroy_all
@@ -52,7 +59,8 @@ doctor1 = Doctor.create(
   field: Field.find_by(name: "General"),
   description: "Have no fear, your doctor is here",
   address: "Pohlstrasse 70, Berlin, Germany",
-  image: "koen.jpeg"
+  image: "koen2.jpeg",
+  background: "desk_with_tree.jpg"
   )
 
 DoctorLanguage.create(
@@ -92,7 +100,8 @@ doctor2 = Doctor.create(
   field: Field.find_by(name: "General"),
   description: "Over 20 experience across 3 continents allow me to give you the utmost professional medical advice and care",
   address: "Bergmannstrasse 91, Berlin, Germany",
-  image: "joost.jpeg"
+  image: "joost.jpeg",
+  background: "pills_and_bottles.jpg"
   )
 
 DoctorLanguage.create(
@@ -132,7 +141,8 @@ doctor3 = Doctor.create(
       field: Field.find_by(name: "Dermatology"),
       description: "Whether you have a rash or just gettting old...my humor and expertise will make you smile again",
       address: "Rudi-Dutschke-Straße 26, Berlin, Germany",
-      image: "deniz.jpeg"
+      image: "deniz.jpeg",
+      background: "show_on_laptop.jpg"
     )
 
 DoctorLanguage.create(
@@ -172,7 +182,8 @@ doctor4 = Doctor.create(
       field: Field.find_by(name: "Dermatology"),
       description: "In my career I have seen it all and am happy to share that knowledge with you",
       address: "Lobeckstraße 36, Berlin, Germany",
-      image: "billy.jpg"
+      image: "billy.jpg",
+      background: "close_up_medical_equipment.jpg"
     )
 
 DoctorLanguage.create(
@@ -213,7 +224,8 @@ doctor5 = Doctor.create(
       field: Field.find_by(name: "General"),
       description: "Native ozzie, I moved to Berlin for medicine and techno",
       address: "Alt Moabit 93, Berlin, Germany",
-      image: "sebastian.jpg"
+      image: "sebastian.jpg",
+      background: "berghain.jpg"
     )
 
 DoctorLanguage.create(
@@ -250,16 +262,20 @@ end
 
 Field.all.each do |field|
   10.times do
+    actualpic = female_pic.last
+    female_pic.pop
     puts "Create a doctor"
-    doctor_name = Faker::Name.female_first_name
-    email_doctor = Faker::Internet.email(doctor_name)
+    doctor_first_name = Faker::Name.female_first_name
+    doctor_last_name = Faker::Name.last_name
+    doctor_full_name = doctor_first_name + " " + doctor_last_name
+    email_doctor = Faker::Internet.email(doctor_full_name)
     doctor = Doctor.create!(
-      name: "Dr. #{doctor_name}",
+      name: "Dr. #{doctor_full_name}",
       email: email_doctor,
       field: field,
       description: Faker::Lorem.paragraph,
       address: data[count]["address"],
-      image: female_pic.sample
+      image: actualpic
     )
     count += 1
 
@@ -268,7 +284,7 @@ Field.all.each do |field|
       DoctorLanguage.create!(doctor: doctor, language: lang)
     end
 
-    puts "Creating Slot for doctor #{doctor_name}"
+    puts "Creating Slot for doctor #{doctor_full_name}"
     20.times do
       start_time = (9..16).to_a.map { |hour| Time.new(0,1,1,hour)}.sample
       week_no = (10..11).to_a.sample
@@ -290,16 +306,20 @@ end
 
 Field.all.each do |field|
   10.times do
+    actualpic = male_pic.last
+    male_pic.pop
     puts "Create a doctor"
-    doctor_name = Faker::Name.male_first_name
-    email_doctor = Faker::Internet.email(doctor_name)
+    doctor_first_name = Faker::Name.male_first_name
+    doctor_last_name = Faker::Name.last_name
+    doctor_full_name = doctor_first_name + " " + doctor_last_name
+    email_doctor = Faker::Internet.email(doctor_full_name)
     doctor = Doctor.create!(
-      name: "Dr. #{doctor_name}",
+      name: "Dr. #{doctor_full_name}",
       email: email_doctor,
       field: field,
       description: Faker::Lorem.paragraph,
       address: data[count]["address"],
-      image: male_pic.sample
+      image: actualpic
     )
     count += 1
 
@@ -308,7 +328,7 @@ Field.all.each do |field|
       DoctorLanguage.create!(doctor: doctor, language: lang)
     end
 
-    puts "Creating Slot for doctor #{doctor_name}"
+    puts "Creating Slot for doctor #{doctor_full_name}"
     20.times do
       start_time = (9..16).to_a.map { |hour| Time.new(0,1,1,hour)}.sample
       week_no = (10..11).to_a.sample

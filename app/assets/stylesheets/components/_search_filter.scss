@@ -1,19 +1,19 @@
 .search-filter {
   display: flex;
-    align-items: center;
-    flex-direction: row;
-    box-sizing: border-box;
-    position: relative;
-    flex-direction: row;
-    min-width: 0;
-    word-wrap: break-word;
-    background-clip: border-box;
-    border-radius: 0.25rem;
-    padding: 10px;
-    margin-top: 10px;
-        position: absolute;
-    top: -92px;
-    left: 318px;
+  align-items: center;
+  flex-direction: row;
+  box-sizing: border-box;
+  position: relative;
+  flex-direction: row;
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: border-box;
+  border-radius: 0.25rem;
+  padding: 10px;
+  margin-top: 10px;
+  position: absolute;
+  top: -92px;
+  left: 318px;
 }
 
 .filter-tag {
@@ -24,3 +24,39 @@
 .width{
   width: 191px;
 }
+
+
+.form-control-mod {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  display: block;
+  font-family: Raleway;
+  width: 100%;
+  height: 39px;
+  padding: 6px 12px;
+  font-size: 15px;
+  line-height: 1.42857;
+  color: black;
+  background-color: white;
+  background-image: none;
+  border-style: solid;
+  border-width: 1px;
+  border-color: grey;
+  border-radius: 6px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  font-weight: normal;
+}
+
+.form-control-mod::placeholder{
+
+  color: #a89e9e;
+  font-family: Raleway;
+  font-weight: normal;
+  color: black;
+  font-size: 15px;
+
+}
+
