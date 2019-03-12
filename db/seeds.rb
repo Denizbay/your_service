@@ -59,7 +59,8 @@ doctor1 = Doctor.create(
   field: Field.find_by(name: "General"),
   description: "Have no fear, your doctor is here",
   address: "Pohlstrasse 70, Berlin, Germany",
-  image: "koen2.jpeg"
+  image: "koen2.jpeg",
+  background: "desk_with_tree.jpg"
   )
 
 DoctorLanguage.create(
@@ -99,7 +100,8 @@ doctor2 = Doctor.create(
   field: Field.find_by(name: "General"),
   description: "Over 20 experience across 3 continents allow me to give you the utmost professional medical advice and care",
   address: "Bergmannstrasse 91, Berlin, Germany",
-  image: "joost.jpeg"
+  image: "joost.jpeg",
+  background: "pills_and_bottles.jpg"
   )
 
 DoctorLanguage.create(
@@ -139,7 +141,8 @@ doctor3 = Doctor.create(
       field: Field.find_by(name: "Dermatology"),
       description: "Whether you have a rash or just gettting old...my humor and expertise will make you smile again",
       address: "Rudi-Dutschke-Straße 26, Berlin, Germany",
-      image: "deniz.jpeg"
+      image: "deniz.jpeg",
+      background: "show_on_laptop.jpg"
     )
 
 DoctorLanguage.create(
@@ -179,7 +182,8 @@ doctor4 = Doctor.create(
       field: Field.find_by(name: "Dermatology"),
       description: "In my career I have seen it all and am happy to share that knowledge with you",
       address: "Lobeckstraße 36, Berlin, Germany",
-      image: "billy.jpg"
+      image: "billy.jpg",
+      background: "close_up_medical_equipment.jpg"
     )
 
 DoctorLanguage.create(
@@ -220,7 +224,8 @@ doctor5 = Doctor.create(
       field: Field.find_by(name: "General"),
       description: "Native ozzie, I moved to Berlin for medicine and techno",
       address: "Alt Moabit 93, Berlin, Germany",
-      image: "sebastian.jpg"
+      image: "sebastian.jpg",
+      background: "berghain.jpg"
     )
 
 DoctorLanguage.create(
