@@ -7,6 +7,7 @@ data = JSON.parse(file)
 
 
 DoctorLanguage.destroy_all
+Review.destroy_all
 Booking.destroy_all
 Slot.destroy_all
 Doctor.destroy_all
