@@ -265,10 +265,12 @@ Field.all.each do |field|
     actualpic = female_pic.last
     female_pic.pop
     puts "Create a doctor"
-    doctor_name = Faker::Name.female_first_name
-    email_doctor = Faker::Internet.email(doctor_name)
+    doctor_first_name = Faker::Name.female_first_name
+    doctor_last_name = Faker::Name.last_name
+    doctor_full_name = doctor_first_name + " " + doctor_last_name
+    email_doctor = Faker::Internet.email(doctor_full_name)
     doctor = Doctor.create!(
-      name: "Dr. #{doctor_name}",
+      name: "Dr. #{doctor_full_name}",
       email: email_doctor,
       field: field,
       description: Faker::Lorem.paragraph,
@@ -282,7 +284,7 @@ Field.all.each do |field|
       DoctorLanguage.create!(doctor: doctor, language: lang)
     end
 
-    puts "Creating Slot for doctor #{doctor_name}"
+    puts "Creating Slot for doctor #{doctor_full_name}"
     20.times do
       start_time = (9..16).to_a.map { |hour| Time.new(0,1,1,hour)}.sample
       week_no = (10..11).to_a.sample
@@ -307,10 +309,12 @@ Field.all.each do |field|
     actualpic = male_pic.last
     male_pic.pop
     puts "Create a doctor"
-    doctor_name = Faker::Name.male_first_name
-    email_doctor = Faker::Internet.email(doctor_name)
+    doctor_first_name = Faker::Name.male_first_name
+    doctor_last_name = Faker::Name.last_name
+    doctor_full_name = doctor_first_name + " " + doctor_last_name
+    email_doctor = Faker::Internet.email(doctor_full_name)
     doctor = Doctor.create!(
-      name: "Dr. #{doctor_name}",
+      name: "Dr. #{doctor_full_name}",
       email: email_doctor,
       field: field,
       description: Faker::Lorem.paragraph,
@@ -324,7 +328,7 @@ Field.all.each do |field|
       DoctorLanguage.create!(doctor: doctor, language: lang)
     end
 
-    puts "Creating Slot for doctor #{doctor_name}"
+    puts "Creating Slot for doctor #{doctor_full_name}"
     20.times do
       start_time = (9..16).to_a.map { |hour| Time.new(0,1,1,hour)}.sample
       week_no = (10..11).to_a.sample
