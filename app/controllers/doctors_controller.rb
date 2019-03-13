@@ -17,7 +17,7 @@ class DoctorsController < ApplicationController
         infoWindow: render_to_string(partial: "/doctors/info_window", locals: { doctor: doctor })
       }
     end
-     @num_doctors = @doctors.count
+     @num_doctors = @doctors.to_a.count
   end
 
   def show
