@@ -25,6 +25,9 @@
           Scheduled for:  <%=  booking.date %> (<%= booking.time %>)
           </div>
 
+<br>
+
+
             <% if booking.review %>
               <div style="
     text-align: left;">
@@ -35,6 +38,9 @@
     text-align: left;">
               <%= link_to "Review your booking", new_booking_review_path(booking)%></div>
             <% end %>
+
+            <button><%= link_to "Go do Doc.", doctors_path %></button>
+
           </div>
           <% end %>
 </div>
