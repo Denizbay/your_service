@@ -23,6 +23,7 @@ gem 'webpacker'
 gem 'faker'
 gem "geocoder"
 gem 'time_difference'
+gem 'dotenv-rails', groups: [:development, :test]
 
 
 group :development do
