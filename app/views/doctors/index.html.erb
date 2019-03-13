@@ -1,96 +1,102 @@
 <div>
-<div class style="    background-color: #fff;
-    background-clip: border-box;
+  <div class style="    background-color: #fff;
+  background-clip: border-box;
   /*  border: 1px solid rgba(0, 0, 0, 0.125);*/
-    border-radius: 0.25rem;
-    position: relative;" >
-    <div class="index-form">
-      <%= render "form" %>
-   </div>
+  border-radius: 0.25rem;
+  position: relative;" >
+  <div class="index-form">
+    <%= render "form" %>
+  </div>
 
 </div>
 
 
 <% if @doctors == [] %>
-  <div class="search-filter" >
-    <h1>Sorry...Please Try Again</h1>
-  </div>
+<div class="search-filter" >
+  <h1>Sorry...Please Try Again</h1>
+</div>
 <% else %>
 
 <div class="index-content">
-<div class="main-container" >
+  <div class="main-container" >
 
-  <div id="index-cards" class="cards">
-  <h1 class="title">You have <strong>64</strong> matches for your search</h1>
-    <div class="cards-container">
-      <div class="row">
-        <% @doctors.shuffle.each do |doctor| %>
-        <div class="col-xs-12 col-sm-12 col-md-12" style="padding-right: 20px">
-          <%= link_to doctor_path(id: doctor.id) do %>
-          <div class="notification">
-          <div class="left-card-content">
-             <% if doctor.image.nil? %>
-                <img style="margin-bottom: 21px;" src="<%= image_path('billy.jpg') %>" class="avatar-large"/>
-            <% else %>
-                <img style="margin-bottom: 21px;" src='<%= image_path(doctor.image) %>' class="avatar-large"/>
-            <% end %>
-            <div class="flag-container">
-              <% doctor.languages.each do |language| %>
+    <div id="index-cards" class="cards">
+      <h1 class="title">You have <strong><%= @num_doctors %></strong> matches for your search</h1>
+      <div class="cards-container">
+        <div class="row">
+          <% @doctors.each do |doctor| %>
+          <div class="col-xs-12 col-sm-12 col-md-12" style="padding-right: 20px">
+            <%= link_to doctor_path(id: doctor.id) do %>
+            <div class="notification">
+              <div class="left-card-content">
+               <% if doctor.image.nil? %>
+               <img style="margin-bottom: 21px;" src="<%= image_path('billy.jpg') %>" class="avatar-large"/>
+               <% else %>
+               <img style="margin-bottom: 21px;" src='<%= image_path(doctor.image) %>' class="avatar-large"/>
+               <% end %>
+               <div class="flag-container">
+                <% doctor.languages.each do |language| %>
                 <% if language.name == "French" %>
                 <div>
                   <%= image_tag "Flag_of_France.svg", alt: "alttext", class: "language-img" %>
                 </div>
                 <% elsif language.name == "English" %>
                 <div>
-                   <%= image_tag "uk-flag.png", alt: "alttext", class: "language-img" %>
-                </div>
-                <% elsif language.name == "Spanish" %>
-                <div>
-                  <%= image_tag "Flag_of_Spain.svg", alt: "alttext", class: "language-img" %>
-                 </div>
-                <% elsif language.name == "Mandarin" %>
-                <div>
-                  <%= image_tag "mandarin.svg", alt: "alttext", class: "language-img" %>
-                </div>
-                <% else %>
-                <div>
-                  <%= image_tag "Flag_of_Germany.svg", alt: "alttext", class: "language-img" %>
-                </div>
-                <% end %>
+                 <%= image_tag "uk-flag.png", alt: "alttext", class: "language-img" %>
+               </div>
+               <% elsif language.name == "Spanish" %>
+               <div>
+                <%= image_tag "Flag_of_Spain.svg", alt: "alttext", class: "language-img" %>
+              </div>
+              <% elsif language.name == "Mandarin" %>
+              <div>
+                <%= image_tag "mandarin.svg", alt: "alttext", class: "language-img" %>
+              </div>
+              <% else %>
+              <div>
+                <%= image_tag "Flag_of_Germany.svg", alt: "alttext", class: "language-img" %>
+              </div>
+              <% end %>
               <% end %>
             </div>
           </div>
 
           <div class="right-card-content">
             <div class="notification-content">
-                  <h4 class="doc-spec"> <%= doctor.field.name %> </h4>
-                  <h3 class="doc-field"><%= doctor.name %> </h3>
-                  <p> TO DO review.stars <%#= doctor.review.stars %> </p>
-                  <h5><%= doctor.address %> </h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <% end %>
-          <% end %>
+              <h4 class="doc-spec"> <%= doctor.field.name %> </h4>
+              <h3 class="doc-field"><%= doctor.name %> </h3>
+              <% sum = 0 %>
+              <% unless  doctor.reviews.empty? %>
+                <p><%= review_sum(doctor,sum) %></p>
+              <% else  %>
+                <p>Waiting for your reviews</p>
+              <% end %>
 
+              <h5><%= doctor.address %> </h5>
             </div>
-
           </div>
         </div>
-
-
-        <div
-        id="map"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-        ></div>
-
       </div>
+      <% end %>
+      <% end %>
 
     </div>
 
-    <% end %>
-    </div>
+  </div>
+</div>
+
+
+<div
+id="map"
+data-markers="<%= @markers.to_json %>"
+data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>
+
+</div>
+
+</div>
+
+<% end %>
+</div>
 </div>
 
