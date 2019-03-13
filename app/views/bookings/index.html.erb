@@ -6,7 +6,13 @@
 
 <div class="col-xs-12 col-sm-12 col-md-12" style="text-align: center;display: flex;justify-content: center;">
   <% current_user.bookings.each do |booking| %>
-          <div class="right-card-content">
+          <div class="right-card-content" style="
+        background-color: wheat;
+    padding: 5%;
+    display: inline-block;
+    width: 50%;
+    margin-left: 10%;
+        padding-right: 10%;">
               <%= booking.slot.doctor.name %> |
               Scheduled for:  <%=  booking.date %> (<%= booking.time %>)
             <% if booking.review %>
