@@ -11,6 +11,7 @@ gem 'redis'
 gem 'algoliasearch-rails'
 gem 'pg_search'
 gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'
 
 
 gem 'autoprefixer-rails'
