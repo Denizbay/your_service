@@ -256,6 +256,212 @@ DoctorLanguage.create(
       doctor: doctor5)
 end
 
+# -------------------------- DOCTOR 6 (female) -------------------------
+
+doctor6 = Doctor.create(
+  name: "Dr. Seema Pass",
+  email: "seema_pass@doctor.com",
+  field: Field.find_by(name: "General"),
+  description: "Passionate about medicine",
+  address: "Friedrichstraße 43, Berlin, Germany",
+  image: "alice.jpg",
+  background: "desk_with_tree.jpg"
+  )
+
+DoctorLanguage.create(
+  doctor: doctor6,
+  language: en
+  )
+
+DoctorLanguage.create(
+  doctor: doctor6,
+  language: fr
+  )
+
+DoctorLanguage.create(
+  doctor: doctor6,
+  language: ma
+  )
+
+20.times do
+  start_time = (9..16).to_a.map { |hour| Time.new(0,1,1,hour)}.sample
+  week_no = (10..11).to_a.sample
+  week_day = rand(1..5)
+  slot =  Slot.where(doctor: doctor6, start_time: start_time, week_number: week_no, weekday: week_day).first
+  next if slot
+  Slot.create(
+      start_time: start_time,
+      duration: 1,
+      weekday: week_day,
+      week_number: week_no,
+      doctor: doctor6)
+end
+
+# -------------------------- DOCTOR 7 (female)  -------------------------
+
+doctor7 = Doctor.create(
+  name: "Dr. Annelies Holstra",
+  email: "annelies_holstra@doctor.com",
+  field: Field.find_by(name: "General"),
+  description: "Patient care is what I live for",
+  address: "Lindenstraße 9, Berlin, Germany",
+  image: "carly.jpeg",
+  background: "pills_and_bottles.jpg"
+  )
+
+DoctorLanguage.create(
+  doctor: doctor7,
+  language: en
+  )
+
+DoctorLanguage.create(
+  doctor: doctor7,
+  language: es
+  )
+
+DoctorLanguage.create(
+  doctor: doctor7,
+  language: ma
+  )
+
+20.times do
+  start_time = (9..16).to_a.map { |hour| Time.new(0,1,1,hour)}.sample
+  week_no = (10..11).to_a.sample
+  week_day = rand(1..5)
+  slot =  Slot.where(doctor: doctor7, start_time: start_time, week_number: week_no, weekday: week_day).first
+  next if slot
+  Slot.create(
+      start_time: start_time,
+      duration: 1,
+      weekday: week_day,
+      week_number: week_no,
+      doctor: doctor7)
+end
+
+# -------------------------- DOCTOR 8 (female) -------------------------
+
+doctor8 = Doctor.create(
+      name: "Dr. Jordane Bentinck",
+      email: "volkier_bentinck@doctor.com",
+      field: Field.find_by(name: "Dermatology"),
+      description: "Don't be ashamed....I have seen it all, well...almost all",
+      address: "Niederkirchnerstraße 1, Berlin, Germany",
+      image: "claire.jpeg",
+      background: "show_on_laptop.jpg"
+    )
+
+DoctorLanguage.create(
+  doctor: doctor8,
+  language: en
+  )
+
+DoctorLanguage.create(
+  doctor: doctor8,
+  language: fr
+  )
+
+DoctorLanguage.create(
+  doctor: doctor8,
+  language: es
+  )
+
+20.times do
+  start_time = (9..16).to_a.map { |hour| Time.new(0,1,1,hour)}.sample
+  week_no = (10..11).to_a.sample
+  week_day = rand(1..5)
+  slot =  Slot.where(doctor: doctor8, start_time: start_time, week_number: week_no, weekday: week_day).first
+  next if slot
+  Slot.create(
+      start_time: start_time,
+      duration: 1,
+      weekday: week_day,
+      week_number: week_no,
+      doctor: doctor3)
+end
+
+# -------------------------- DOCTOR 9 (female)  -------------------------
+
+doctor9 = Doctor.create(
+      name: "Dr. Caroline Gros",
+      email: "caroline_gros@doctor.com",
+      field: Field.find_by(name: "Dermatology"),
+      description: "Here to help, here to care",
+      address: "Schöneberger Str. 3, Berlin, Germany",
+      image: "clarissa.jpg",
+      background: "close_up_medical_equipment.jpg"
+    )
+
+DoctorLanguage.create(
+  doctor: doctor9,
+  language: en
+  )
+
+DoctorLanguage.create(
+  doctor: doctor9,
+  language: ma
+  )
+
+DoctorLanguage.create(
+  doctor: doctor9,
+  language: fr
+  )
+
+20.times do
+  start_time = (9..16).to_a.map { |hour| Time.new(0,1,1,hour)}.sample
+  week_no = (10..11).to_a.sample
+  week_day = rand(1..5)
+  slot =  Slot.where(doctor: doctor4, start_time: start_time, week_number: week_no, weekday: week_day).first
+  next if slot
+  Slot.create(
+      start_time: start_time,
+      duration: 1,
+      weekday: week_day,
+      week_number: week_no,
+      doctor: doctor9
+      )
+end
+
+# -------------------------- DOCTOR 10 (female)  -------------------------
+
+doctor10 = Doctor.create(
+      name: "Dr. Nim Lepcha",
+      email: "nim_lepcha@doctor.com",
+      field: Field.find_by(name: "General"),
+      description: "From Bruxelles....medicine capital of the world",
+      address: "Charlottenstraße 49, Berlin, Germany",
+      image: "nim.jpg",
+      background: "berghain.jpg"
+    )
+
+DoctorLanguage.create(
+  doctor: doctor10,
+  language: en
+  )
+
+DoctorLanguage.create(
+  doctor: doctor10,
+  language: ma
+  )
+
+DoctorLanguage.create(
+  doctor: doctor10,
+  language: es
+  )
+
+20.times do
+  start_time = (9..16).to_a.map { |hour| Time.new(0,1,1,hour)}.sample
+  week_no = (10..11).to_a.sample
+  week_day = rand(1..5)
+  slot =  Slot.where(doctor: doctor10, start_time: start_time, week_number: week_no, weekday: week_day).first
+  next if slot
+  Slot.create(
+      start_time: start_time,
+      duration: 1,
+      weekday: week_day,
+      week_number: week_no,
+      doctor: doctor10)
+end
+
 
 # -------------------------- FEMALE FAKER GENERATED DOCS ATTRIBUTES LANG SLOTS  -------------------------
 
