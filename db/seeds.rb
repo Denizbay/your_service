@@ -1,23 +1,22 @@
 require 'faker'
-require 'faker'
 require "json"
 
 file = File.read "db/address_clean.json"
 data = JSON.parse(file)
 
-female_pic = ["alice.jpg", "avalon.jpg", "celine.png","clarissa.jpg", "claire.jpeg", "clara.jpeg",
-  "carly.jpeg", "diane.jpeg", "elise.jpeg", "emna.jpg", "irina.jpg", "ivy.jpeg", "jessica.png",
-  "julia.jpeg", "juliakim.jpeg", "kirsty.png", "krisztina.jpg","laura.jpeg", "lea.png", "lonneke.jpeg",
-   "louise.jpg", "madifa.png", "manon.jpeg", "margo.jpeg", "margarita.jpeg", "marina.jpg",
-   "mathilde.jpg", "mirha.jpeg", "morgane.jpeg", "nathalia.jpg", "nina.jpeg", "orianne.jpeg",
-   "olya.jpeg", "paphada.jpg", "rebecca.jpeg", "rebekah.jpg", "sharon.jpeg", "sarah.jpg",
-   "serena.png", "sophie.jpeg", "tatiana.jpg", "yukari.jpg", "zuz.jpeg"]
-male_pic = ["adrian.jpg", "andrey.jpeg", "andre.jpg", "arbi.jpeg", "aurel.jpg", "darrick.jpeg",
-  "david.jpg", "diego.jpeg", "dimi.jpeg", "donatien.jpg", "emri.jpeg", "francois.jpeg", "frank.jpeg",
-   "gianluca.png", "guillaume.jpg", "grant.jpg", "james.jpeg", "jason.jpg", "jerome.jpeg", "leon.jpeg",
-   "lilian.jpeg", "loic.jpeg", "mahesh.jpeg", "martin.jpg", "max1.jpeg", "nino.jpeg", "nicolas.jpeg",
-    "pierre.jpg", "reda.png", "sebastien.jpeg", "salim.jpeg", "sou.jpg", "suraj.jpg", "tim.jpg",
-     "timothee.jpeg", "thomas.jpeg", "tom.png", "victor.jpeg", "vincent.jpeg", "wesley.jpg"]
+female_pic = ["alice", "avalon", "celine","clarissa", "claire.jpeg", "clara",
+  "carly", "diane", "elise", "emna", "irina", "ivy", "jessica",
+  "julia", "juliakim", "kirsty", "krisztina","laura", "lea", "lonneke",
+   "louise", "madifa", "manon", "margo", "margarita", "marina",
+   "mathilde", "mirha", "morgane", "nathalia", "nina", "orianne",
+   "olya", "paphada", "rebecca", "rebekah", "sharon", "sarah",
+   "serena", "sophie", "tatiana", "yukari", "zuz"]
+male_pic = ["adrian", "andrey", "andre", "arbi", "aurel", "darrick",
+  "david", "diego", "dimi", "donatien", "emri", "francois", "frank",
+   "gianluca", "guillaume", "grant", "james", "jason", "jerome", "leon",
+   "lilian", "loic", "mahesh", "martin", "max1", "nino", "nicolas",
+    "pierre", "reda", "sebastien", "salim", "sou", "suraj", "tim",
+     "timothee", "thomas", "tom", "victor", "vincent", "wesley"]
 
 
 DoctorLanguage.destroy_all
@@ -59,8 +58,10 @@ doctor1 = Doctor.create(
   field: Field.find_by(name: "General"),
   description: "Have no fear, your doctor is here",
   address: "Pohlstrasse 70, Berlin, Germany",
-  image: "koen2.jpeg",
-  background: "desk_with_tree.jpg"
+  remote_photo_url:"https://res.cloudinary.com/difmkiecj/image/upload/v1551362320/koen2.jpeg",
+  background: "desk_with_tree.jpg",
+
+
   )
 
 DoctorLanguage.create(
@@ -100,8 +101,10 @@ doctor2 = Doctor.create(
   field: Field.find_by(name: "General"),
   description: "Over 20 experience across 3 continents allow me to give you the utmost professional medical advice and care",
   address: "Bergmannstrasse 91, Berlin, Germany",
-  image: "joost.jpeg",
-  background: "pills_and_bottles.jpg"
+  remote_photo_url:"https://res.cloudinary.com/difmkiecj/image/upload/v1551362320/joost.jpeg",
+  background: "pills_and_bottles.jpg",
+
+
   )
 
 DoctorLanguage.create(
@@ -141,8 +144,10 @@ doctor3 = Doctor.create(
       field: Field.find_by(name: "Dermatology"),
       description: "Whether you have a rash or just gettting old...my humor and expertise will make you smile again",
       address: "Rudi-Dutschke-Straße 26, Berlin, Germany",
-      image: "deniz.jpeg",
-      background: "show_on_laptop.jpg"
+      remote_photo_url:"https://res.cloudinary.com/difmkiecj/image/upload/v1551362320/deniz.jpeg",
+      background: "show_on_laptop.jpg",
+
+
     )
 
 DoctorLanguage.create(
@@ -182,8 +187,10 @@ doctor4 = Doctor.create(
       field: Field.find_by(name: "Dermatology"),
       description: "In my career I have seen it all and am happy to share that knowledge with you",
       address: "Lobeckstraße 36, Berlin, Germany",
-      image: "billy.jpg",
+      remote_photo_url:"https://res.cloudinary.com/difmkiecj/image/upload/v1551362320/billy.jpg",
       background: "close_up_medical_equipment.jpg"
+
+
     )
 
 DoctorLanguage.create(
@@ -216,6 +223,7 @@ DoctorLanguage.create(
       )
 end
 
+
 # -------------------------- DOCTOR 5  -------------------------
 
 doctor5 = Doctor.create(
@@ -224,8 +232,10 @@ doctor5 = Doctor.create(
       field: Field.find_by(name: "General"),
       description: "Native ozzie, I moved to Berlin for medicine and techno",
       address: "Alt Moabit 93, Berlin, Germany",
-      image: "sebastian.jpg",
-      background: "berghain.jpg"
+      photo:"andre",
+      background: "berghain.jpg",
+
+
     )
 
 DoctorLanguage.create(
@@ -260,10 +270,9 @@ end
 
 # -------------------------- FEMALE FAKER GENERATED DOCS ATTRIBUTES LANG SLOTS  -------------------------
 
+
 Field.all.each do |field|
   10.times do
-    actualpic = female_pic.last
-    female_pic.pop
     puts "Create a doctor"
     doctor_first_name = Faker::Name.female_first_name
     doctor_last_name = Faker::Name.last_name
@@ -275,7 +284,7 @@ Field.all.each do |field|
       field: field,
       description: Faker::Lorem.paragraph,
       address: data[count]["address"],
-      image: actualpic
+      remote_photo_url: Cloudinary::Api.resource(female_pic.sample)["url"]
     )
     count += 1
 
@@ -319,7 +328,7 @@ Field.all.each do |field|
       field: field,
       description: Faker::Lorem.paragraph,
       address: data[count]["address"],
-      image: actualpic
+      remote_photo_url: Cloudinary::Api.resource(male_pic.sample)["url"]
     )
     count += 1
 

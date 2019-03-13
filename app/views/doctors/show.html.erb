@@ -1,11 +1,13 @@
 
 <div class="banner-show">
 
-<!-- NEED TO MAKE THE BACKGROUND IMAGE FLEXIBLE, CFR CODE USED IN INDEX PAGE -->
+  <!-- NEED TO MAKE THE BACKGROUND IMAGE FLEXIBLE, CFR CODE USED IN INDEX PAGE -->
 
   <div class="flexbox-top">
     <div class="flex-top-left">
       <%= image_tag "logo.png", alt: "alttext" %>
+      <%= cl_image_tag @doctor.photo, height: 300, width: 400, crop: :fill %>
+
     </div>
     <div class="flex-top-right">
       <div class="top">
@@ -14,44 +16,31 @@
       </div>
       <div class="down">
         <h5><%= @doctor.field.name %></h5>
-      <h1><%= @doctor.name %></h1>
+        <h1><%= @doctor.name %></h1>
       </div>
-      </div>
+    </div>
   </div>
 </div>
 
 
- <div class="flexbox">
+<div class="flexbox">
   <div class="flex-left">
     <div class="doctor-show-1 doctor-show">
       <%= render "tabs" %>
     </div>
-<!--
-    <div class="doctor-show-2 doctor-show">
-      <a href="#">Overview</a>
-      <a href="#">Reviews</a>
-    </div> -->
-
-<!--     <div class="doctor-show-3 doctor-show">
-
-
-
-    <%= render "tabs" %>
-
-    </div> -->
 
   </div>
 
   <div class="flex-right">
 
-  <div class="booking doctor-show ">
-    <%= render 'week_view' %>
-  </div>
+    <div class="booking doctor-show ">
+      <%= render 'week_view' %>
+    </div>
 
 
 
   </div>
- </div>
+</div>
 
 
 

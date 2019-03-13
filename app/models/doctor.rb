@@ -16,6 +16,8 @@ class Doctor < ApplicationRecord
   validates :address, presence: true
   validates :description, presence: true
 
+  mount_uploader :photo, PhotoUploader
+
   include PgSearch
 
   pg_search_scope :global_search,
