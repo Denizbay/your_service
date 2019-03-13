@@ -21,7 +21,7 @@
 <div class="main-container" >
 
   <div id="index-cards" class="cards">
-  <h1 class="title">You have <b>64</b> match your search</h1>
+  <h1 class="title">You have <strong>64</strong> matches for your search</h1>
     <div class="cards-container">
       <div class="row">
         <% @doctors.shuffle.each do |doctor| %>
@@ -48,9 +48,13 @@
                 <div>
                   <%= image_tag "Flag_of_Spain.svg", alt: "alttext", class: "language-img" %>
                  </div>
-                <% else language.name == "Mandarin" %>
+                <% elsif language.name == "Mandarin" %>
                 <div>
                   <%= image_tag "mandarin.svg", alt: "alttext", class: "language-img" %>
+                </div>
+                <% else %>
+                <div>
+                  <%= image_tag "Flag_of_Germany.svg", alt: "alttext", class: "language-img" %>
                 </div>
                 <% end %>
               <% end %>

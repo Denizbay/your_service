@@ -35,7 +35,6 @@ en = Language.create!(name: 'English')
 es = Language.create!(name: 'Spanish')
 ma = Language.create!(name: 'Mandarin')
 fr = Language.create!(name: 'French')
-de = Language.create!(name: 'German')
 
 
 puts 'Creating Fields'
@@ -75,7 +74,7 @@ DoctorLanguage.create(
 
 DoctorLanguage.create(
   doctor: doctor1,
-  language: de
+  language: ma
   )
 
 20.times do
@@ -116,7 +115,7 @@ DoctorLanguage.create(
 
 DoctorLanguage.create(
   doctor: doctor2,
-  language: de
+  language: ma
   )
 
 20.times do
@@ -198,7 +197,7 @@ DoctorLanguage.create(
 
 DoctorLanguage.create(
   doctor: doctor4,
-  language: de
+  language: fr
   )
 
 20.times do
@@ -240,7 +239,7 @@ DoctorLanguage.create(
 
 DoctorLanguage.create(
   doctor: doctor5,
-  language: de
+  language: es
   )
 
 20.times do
@@ -324,7 +323,7 @@ Field.all.each do |field|
     count += 1
 
     puts "Create the doctor language"
-    Language.all.sample(rand(1..3)).each do |lang|
+      Language.all.sample(rand(1..3)).each do |lang|
       DoctorLanguage.create!(doctor: doctor, language: lang)
     end
 
