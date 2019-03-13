@@ -5,7 +5,7 @@
 
   <div class="flexbox-top">
     <div class="flex-top-left">
-      <%= image_tag "logo.png", alt: "alttext" %>
+      <img src='<%= image_path(@doctor.image) %>'>
     </div>
     <div class="flex-top-right">
       <div class="top">
@@ -23,7 +23,9 @@
 
  <div class="flexbox">
   <div class="flex-left">
-    <div class="doctor-show-1 doctor-show">
+    <div class="doctor-show-1 doctor-show" style="
+    height: 98%;
+">
       <%= render "tabs" %>
     </div>
 <!--
