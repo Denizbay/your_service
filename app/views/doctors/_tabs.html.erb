@@ -32,13 +32,15 @@
 
   <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
     <div class="carousel">
-    <% @doctor.reviews.each do |review|   %>
+      <% if @doctor.reviews.length > 0 %>
+        <% @doctor.reviews.each do |review|   %>
         <div class="carousel-cell">
           <% review.stars.times do |star| %>
           <i class="fas fa-star"></i>
           <% end %>
           <%= review.content  %>
         </div>
+    <% end %>
     <% end %>
   </div>
 
