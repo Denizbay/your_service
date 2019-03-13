@@ -3,9 +3,14 @@
   <div class="tab-pane fade active in" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" style="
     margin-top: 7%;">
         <h4>Professional Statement</h4>
-         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo asperiores porro ipsudebitis modi dolore optio, repellendus minima tempora beatae harum fuga iste animi efugit odit enim. Iure, perspiciatis?</p>
+         <% if @doctor.description.nil? %>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo asperiores porro ipsudebitis modi dolore optio, repellendus minima tempora beatae harum fuga iste animi efugit odit enim. Iure, perspiciatis?</p>
+          <% else %>
+            <%= @doctor.description %>
+          <% end %>
          <br>
-         <h4>Language</h4>
+         <br>
+         <h4>I speak...</h4>
          <% @doctor.languages.each do |language| %>
         <% if language.name == "French" %>
         <%= image_tag "Flag_of_France.svg", alt: "alttext", class: "language-img" %>
@@ -17,24 +22,36 @@
         <%= image_tag "mandarin.svg", alt: "alttext", class: "language-img" %>
       <% end %>
       <% end %>
+      <br>
+         <br>
+      <h4>You can find me at:</h4>
+      <%= @doctor.address %>
   </div>
 
 
 
   <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" style="
-    margin-top: 7%;">
-    <div class="carousel">
+    margin-top: 7%;
+    width: 100%;">
       <% if @doctor.reviews.length > 0 %>
         <% @doctor.reviews.each do |review|   %>
-        <div class="carousel-cell">
-          <% review.stars.times do |star| %>
-          <i class="fas fa-star"></i>
-          <% end %>
-          <%= review.content  %>
+
+    <div class="rating-box" style="display: flex;">
+          <div class="rating">
+            <%= review.booking.created_at %>
+            <div>
+              <% review.stars.times do |star| %>
+              <i class="fas fa-star"></i>
+              <% end %>
+            </div>
+          </div>
+        <div>
+          <p><%= review.content  %></p>
         </div>
-    <% end %>
-    <% end %>
   </div>
+
+    <% end %>
+    <% end %>
 
 
 </div>

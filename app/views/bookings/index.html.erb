@@ -4,24 +4,43 @@
 
 
 
-<div class="col-xs-12 col-sm-12 col-md-12" style="text-align: center;display: flex;justify-content: center;">
+<div class="col-xs-12 col-sm-12 col-md-12" style="text-align: center; justify-content: center;">
   <% current_user.bookings.each do |booking| %>
           <div class="right-card-content" style="
-        background-color: wheat;
+        background-color: #acdae6;
     padding: 5%;
     display: inline-block;
     width: 50%;
-    margin-left: 10%;
-        padding-right: 10%;">
-              <%= booking.slot.doctor.name %> |
-              Scheduled for:  <%=  booking.date %> (<%= booking.time %>)
+    /* margin-left: 10%; */
+    /* padding-right: 10%; */
+    margin-bottom: 12px;
+    justify-content: center;
+    border-radius: 10px;">
+          <div style="
+    text-align: left;">
+              <%= booking.slot.doctor.name %>
+          </div>
+          <div style="
+    text-align: left;">
+          Scheduled for:  <%=  booking.date %> (<%= booking.time %>)
+          </div>
+
+<br>
+
+
             <% if booking.review %>
-              <div>
+              <div style="
+    text-align: left;">
                 <%= render 'reviews/review', review: booking.review %>
               </div>
             <% else %>
-              <%= link_to "Review your booking", new_booking_review_path(booking)  %>
+            <div style="
+    text-align: left;">
+              <%= link_to "Review your booking", new_booking_review_path(booking)%></div>
             <% end %>
+
+            <button><%= link_to "Go do Doc.", doctors_path %></button>
+
           </div>
           <% end %>
 </div>
