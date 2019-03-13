@@ -16,8 +16,8 @@ class DoctorsController < ApplicationController
         lat: doctor.latitude,
         infoWindow: render_to_string(partial: "/doctors/info_window", locals: { doctor: doctor })
       }
-
     end
+     @num_doctors = @doctors.count
   end
 
   def show
@@ -26,12 +26,9 @@ class DoctorsController < ApplicationController
     @week_number = params[:week_number].present? ? params[:week_number] : Date.current.cweek
   end
 
-private
+  private
 
   def params_doctor
     params.require(:doctors).permit(:name, :email, :address, :description)
   end
-
-
 end
-

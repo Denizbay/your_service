@@ -378,7 +378,6 @@ DoctorLanguage.create(
       week_number: week_no,
       doctor: doctor3)
 end
-
 # -------------------------- DOCTOR 9 (female)  -------------------------
 
 doctor9 = Doctor.create(
