@@ -1,3 +1,10 @@
-<h1>Review your appointment with <%= @doctor.name %></h1>
+<div class="bannerreview">
+  <div style="
+    margin-left: 25%;">
+  <div class="header-one">Review your appointment with <%= @doctor.name %></div>
 
-<%= render "reviews/form", review: @review, booking: @booking %>
+      <%= render "reviews/form", review: @review, booking: @booking %>
+  </div>
+</div>
+
+
