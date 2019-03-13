@@ -34,7 +34,6 @@ en = Language.create!(name: 'English')
 es = Language.create!(name: 'Spanish')
 ma = Language.create!(name: 'Mandarin')
 fr = Language.create!(name: 'French')
-de = Language.create!(name: 'German')
 
 
 puts 'Creating Fields'
@@ -59,7 +58,7 @@ doctor1 = Doctor.create(
   description: "Have no fear, your doctor is here",
   address: "Pohlstrasse 70, Berlin, Germany",
   remote_image_url:"https://res.cloudinary.com/difmkiecj/image/upload/v1551362320/koen2.jpeg",
-  background: "desk_with_tree.jpg",
+  background: "black_white_tet.jpg",
 
 
   )
@@ -76,7 +75,7 @@ DoctorLanguage.create(
 
 DoctorLanguage.create(
   doctor: doctor1,
-  language: de
+  language: ma
   )
 
 20.times do
@@ -119,7 +118,7 @@ DoctorLanguage.create(
 
 DoctorLanguage.create(
   doctor: doctor2,
-  language: de
+  language: ma
   )
 
 20.times do
@@ -205,7 +204,7 @@ DoctorLanguage.create(
 
 DoctorLanguage.create(
   doctor: doctor4,
-  language: de
+  language: fr
   )
 
 20.times do
@@ -232,7 +231,7 @@ doctor5 = Doctor.create(
       field: Field.find_by(name: "General"),
       description: "Native ozzie, I moved to Berlin for medicine and techno",
       address: "Alt Moabit 93, Berlin, Germany",
-      image:"andre",
+      remote_image_url:"https://res.cloudinary.com/difmkiecj/image/upload/v1552494580/sebastian.jpg",
       background: "berghain.jpg",
 
 
@@ -250,7 +249,7 @@ DoctorLanguage.create(
 
 DoctorLanguage.create(
   doctor: doctor5,
-  language: de
+  language: es
   )
 
 20.times do
