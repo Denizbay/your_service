@@ -67,7 +67,7 @@
               <h3 class="doc-field"><%= doctor.name %> </h3>
               <% sum = 0 %>
               <% unless  doctor.reviews.empty? %>
-                <p><%= review_sum(doctor,sum) %></p>
+                <p ><%= review_sum(doctor,sum) %></p>
               <% else  %>
                 <p>Waiting for your reviews</p>
               <% end %>
