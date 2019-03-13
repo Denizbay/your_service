@@ -6,7 +6,7 @@ data = JSON.parse(file)
 
 female_pic = ["alice", "avalon", "celine","clarissa", "claire", "clara",
   "carly", "diane", "elise", "emna", "irina", "ivy", "jessica",
-  "julia", "juliakim", "kirsty", "krisztina","laura", "lea", "lonneke",
+  "julia", "juliakim", "kirsty", "krisztina", "laura", "lea", "lonneke",
    "louise", "madifa", "manon", "margo", "margarita", "marina",
    "mathilde", "mirha", "morgane", "nathalia", "nina", "orianne",
    "olya", "paphada", "rebecca", "rebekah", "sharon", "sarah",

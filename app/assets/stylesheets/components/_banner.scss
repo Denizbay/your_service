@@ -36,6 +36,22 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
+.show-doctor-banner {
+  display: flex;
+  justify-content: center;
+  .avatar-large {
+    width: 104px;
+    border: solid 3px #fefefe;
+  }
+  h1 {
+    margin: 0;
+    margin-left: 26px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 2px 14px #00000057;
+  }
+}
+
 
 .banner-show {
   background-position: center;
@@ -48,6 +64,8 @@
 }
 
 .banner-show-doctor {
+  background-size: cover;
+  background-position: center;
   position: relative;
   object-position: center;
   object-fit: cover;
