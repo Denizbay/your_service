@@ -1,26 +1,32 @@
-<div class="booking-container">
+<div class="header-one"><h2>These are all your bookings:</h2></div>
 
-  <h2>These are all your bookings:</h2>
 
+
+
+
+<div class="col-xs-12 col-sm-12 col-md-12" style="text-align: center;display: flex;justify-content: center;">
   <% current_user.bookings.each do |booking| %>
-    <div>
-      Dr. <%= booking.slot.doctor.name %> |
-      Scheduled for:  <%=  booking.date %> (<%= booking.time %>)
-
-
-      <% if booking.review %>
-        <div>
-          <%= render 'reviews/review', review: booking.review %>
-        </div>
-      <% else %>
-        <%= link_to "Review your booking", new_booking_review_path(booking)  %>
-      <% end %>
-    </div>
-  <% end %>
-
-  <%= link_to "Schedule another appointment", doctors_path %>
-
+          <div class="right-card-content">
+              <%= booking.slot.doctor.name %> |
+              Scheduled for:  <%=  booking.date %> (<%= booking.time %>)
+            <% if booking.review %>
+              <div>
+                <%= render 'reviews/review', review: booking.review %>
+              </div>
+            <% else %>
+              <%= link_to "Review your booking", new_booking_review_path(booking)  %>
+            <% end %>
+          </div>
+          <% end %>
 </div>
+
+
+
+
+
+<%= link_to "Schedule another appointment", doctors_path %>
+
+
 
 
 
