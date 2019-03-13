@@ -59,7 +59,7 @@ doctor1 = Doctor.create(
   description: "Have no fear, your doctor is here",
   address: "Pohlstrasse 70, Berlin, Germany",
   image: "koen2.jpeg",
-  background: "desk_with_tree.jpg"
+  background: "black_white_tet.jpg"
   )
 
 DoctorLanguage.create(
@@ -265,7 +265,7 @@ doctor6 = Doctor.create(
   description: "Passionate about medicine",
   address: "Friedrichstraße 43, Berlin, Germany",
   image: "alice.jpg",
-  background: "desk_with_tree.jpg"
+  background: "black_white_tet.jpg"
   )
 
 DoctorLanguage.create(
