@@ -20,19 +20,9 @@
     </div>
 
     <div>
-      <h4> <%= @booking.slot.doctor.address %></h4>
+      <p class="address-tabs"><i class="fas fa-map-marker-alt"></i><%= @booking.slot.doctor.address %></p>
     </div>
-
-    <div class="container-booking" style="margin-top: 20px; margin-bottom: 10px; padding: 0 47px;">
-      <%= link_to "Schedule another appointment", doctors_path, class: "btn btn-flat" %>
-    </div>
-
-    <div class="container-booking" style="margin-top: 20px; margin-bottom: 10px; padding: 0 47px;">
-      <%= link_to "See all my bookings", bookings_path, class: "btn btn-flat", id: "deniz" %>
-    </div>
-
   </div>
-
 
   <div
   id="map"
@@ -42,3 +32,13 @@
   ></div>
 
 </div>
+    <div style="
+    display: flex;
+    justify-content: center;">
+        <div class="container-booking-btn" style="margin-top: 20px; margin-bottom: 10px; padding: 0 47px;">
+          <%= link_to "Schedule another appointment", doctors_path, class: "btn btn-flat" %>
+        </div>
+        <div class="container-booking-btn" style="margin-top: 20px; margin-bottom: 10px; padding: 0 47px;">
+        <%= link_to "See all my bookings", bookings_path, class: "btn btn-flat", id: "deniz" %>
+        </div>
+    </div>

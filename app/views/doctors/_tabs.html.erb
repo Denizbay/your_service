@@ -24,8 +24,7 @@
       <% end %>
       <br>
          <br>
-      <h4>You can find me at:</h4>
-      <%= @doctor.address %>
+      <p class="address-tabs"><i class="fas fa-map-marker-alt"></i><%= @doctor.address %></p>
   </div>
 
 
@@ -38,6 +37,7 @@
 
     <div class="rating-box" style="display: flex;">
           <div class="rating">
+
             <%= review.booking.created_at %>
             <div>
               <% review.stars.times do |star| %>

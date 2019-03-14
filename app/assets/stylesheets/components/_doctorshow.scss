@@ -36,6 +36,8 @@ border-right: solid 1px grey;
 .doctor-show-1{
   height: 350px;
   margin-bottom: 3%;
+  max-height: 392px;
+  overflow: scroll;
   text-align: center;
 }
 
@@ -126,13 +128,26 @@ border-right: solid 1px grey;
   }
 }
 
+.address-tabs {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  i {
+    margin-right: 5px;
+  }
+}
+
 nav {
   display: flex;
   justify-content: space-around;
   position: absolute;
-  top: 30px;
-      left: 112px;
+  top: 4px;
+  height: 63px;
+  background-color: #e3e3e3;
+  padding: 5px;
+  width: 100%;
   z-index: 11;
+  border-radius: 6px 6px 0 0;
+  box-shadow: 0px 4px 15px 0px #aaaaaa8f;
 }
 
 .nav-tabs {

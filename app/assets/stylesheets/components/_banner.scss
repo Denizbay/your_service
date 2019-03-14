@@ -12,7 +12,8 @@
 .bannerreview {
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 40px;
   align-items: center;
   display: flex;
   background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0, #fff 100%), asset-url('young_doctor_laughing.jpg');
