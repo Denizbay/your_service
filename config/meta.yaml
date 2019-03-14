@@ -1,4 +1,4 @@
 meta_product_name: "POLYDOC"
 meta_title: "POLYDOC - Find the right doctor that speaks your language"
 meta_description: "Ever moved to a new country and needed a doctor that spoke your language? POLYDOC finds you the best docotr in your area that also speaks your language."
-meta_image: "doctor_logo.svg" # should exist in `app/assets/images/`
+meta_image: "doctor_logo.png" # should exist in `app/assets/images/`
