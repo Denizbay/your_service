@@ -1,72 +1,61 @@
 <div class="bannerreview" style="justify-content: center;">
   <div style="text-align: center;
-    padding: 42px 70px;">
-<div class="header-one"><h2>These are all your bookings</h2></div>
+  padding: 42px 70px;">
+    <div class="header-one"><h2>These are all your bookings</h2></div>
+    <br>
+    <br>
+          <% current_user.bookings.each do |booking| %>
 
-<br>
-<br>
-<div class="col-xs-12 col-sm-12 col-md-12" style="
+    <div class="col-xs-12 col-sm-12 col-md-12" style="
     display: inline-block;">
-
-  <% current_user.bookings.each do |booking| %>
-    <%= link_to booking_path(id: booking.id) do %>
+        <%#= link_to booking_path(id: booking.id) do %>
           <div class="right-card-content" style="
-        background-color: #acdae6a3;
-    padding: 2%;
-    display: inline-block;
-    width: 100%;
-    /* margin-left: 10%; */
-    /* padding-right: 10%; */
-    margin-bottom: 12px;
-    /* justify-content: center; */
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;">
+          background-color: #acdae6a3;
+          padding: 2%;
+          display: inline-block;
+          width: 100%;
+          /* margin-left: 10%; */
+          /* padding-right: 10%; */
+          margin-bottom: 12px;
+          /* justify-content: center; */
+          border-radius: 10px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;">
 
+            <div style="
+            align-items: center; width: 23%">
+             <%= link_to booking_path(id: booking.id) do%>
+               <%= cl_image_tag(booking.slot.doctor.image, class: "bookingindex") %>
+              <p style="font-weight: bold;"> <%= booking.slot.doctor.name %></p>
+               <% end %>
+            </div>
 
-          <div style="
-    align-items: center; width: 23%">
+            <div style="
+            text-align: left;">
+              Scheduled for: <br> <%= booking.date.strftime("%b %d, %Y") %>  at  <%= booking.time  %>
+            </div>
+            <br>
             <div>
-    <%= cl_image_tag(booking.slot.doctor.image, class: "bookingindex") %>
-          </div>
-          <%= booking.slot.doctor.name %>
-          </div>
-
-
-          <div style="
-    text-align: left;">
-          Scheduled for:  <%= booking.date.strftime("%b %d, %Y") %>  at  <%= booking.time  %>
-          </div>
-
-<br>
-
-
             <% if booking.review %>
               <div style="
-    text-align: left;">
-                <%= render 'reviews/review', review: booking.review %>
+              text-align: left;">
+               <%= render 'reviews/review', review: booking.review %>
               </div>
-            <% else %>
-            <div style="
-    text-align: left;">
-              <%= link_to "Review your booking", new_booking_review_path(booking)%></div>
-            <% end %>
-
-            <%= button_to "See Doctor Profile", doctor_path(booking.slot.doctor), class: "btn btn-flat" %>
+              <% else %>
+              <div>
+                <%= link_to "Review your booking", new_booking_review_path(booking)%>
+                </div>
+              <% end %>
+            </div>
+            <%= link_to "See Doctor Profile", doctor_path(booking.slot.doctor), class: "btn btn-flat" %>
           </div>
-           <% end %>
-        <% end %>
+      <%# end %>
+    </div>
+    <% end %>
 
-</div>
-
-
-
-
-
-<%= link_to "Schedule another appointment", doctors_path, class: "btn btn-flat" %>
-
-</div>
+  <%= link_to "Schedule another appointment", doctors_path, class: "btn btn-flat" %>
+  </div>
 </div>
 
 
