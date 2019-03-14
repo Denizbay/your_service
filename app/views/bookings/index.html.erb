@@ -1,28 +1,40 @@
+<div class="bannerreview" style="justify-content: center;">
+  <div style="text-align: center";>
 <div class="header-one"><h2>These are all your bookings:</h2></div>
 
 
 
 
 
-<div class="col-xs-12 col-sm-12 col-md-12" style="text-align: center; justify-content: center;">
+<div class="col-xs-12 col-sm-12 col-md-12" style="
+    display: inline-block;">
   <% current_user.bookings.each do |booking| %>
           <div class="right-card-content" style="
-        background-color: #acdae6;
-    padding: 5%;
+        background-color: #acdae6a3;
+    padding: 2%;
     display: inline-block;
-    width: 50%;
+    width: 100%;
     /* margin-left: 10%; */
     /* padding-right: 10%; */
     margin-bottom: 12px;
-    justify-content: center;
-    border-radius: 10px;">
+    /* justify-content: center; */
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;">
+
+
           <div style="
-    text-align: left;">
-              <%= booking.slot.doctor.name %>
+    align-items: center; width: 23%">
+            <div style="height: auto; width: 19%;
+    border-radius: 50%;";> <% cl_image_tag(booking.slot.doctor.image)%>
           </div>
+          <%= booking.slot.doctor.name %>
+          </div>
+
+
           <div style="
     text-align: left;">
-          Scheduled for:  <%=  booking.date %> (<%= booking.time %>)
+          Scheduled for:  <%= booking.date %> (<%= booking.time %>)
           </div>
 
 <br>
@@ -39,7 +51,7 @@
               <%= link_to "Review your booking", new_booking_review_path(booking)%></div>
             <% end %>
 
-            <button><%= link_to "Go do Doc.", doctors_path %></button>
+            <button><%= link_to "Go do back Doc.", doctor_path(booking.slot.doctor) %></button>
 
           </div>
           <% end %>
@@ -51,7 +63,7 @@
 
 <%= link_to "Schedule another appointment", doctors_path %>
 
-
-
+</div>
+</div>
 
 
