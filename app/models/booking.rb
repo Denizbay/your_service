@@ -8,7 +8,7 @@ class Booking < ApplicationRecord
   end
 
   def time
-    slot.start_time.strftime(' %l %M %p')
+    slot.start_time.strftime(' %l %p')
   end
 end
 
