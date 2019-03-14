@@ -1,11 +1,12 @@
 // Import Google fonts
 // @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
 // @import url('https://fonts.googleapis.com/css?family=Varela+Round');
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Raleway');
+// @import url('https://fonts.googleapis.com/css?family=Montserrat|Raleway');
+@import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,700');
 
 // Define fonts for body and headers
-$body-font:  "Raleway", "sans-serif";
-$headers-font: "Montserrat", "sans-serif";
+$body-font:  'Source Serif Pro', serif;
+$headers-font: 'Source Serif Pro', serif;
 
 
 // To use a font file (.woff) uncomment following lines
