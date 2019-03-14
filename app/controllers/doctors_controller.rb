@@ -2,7 +2,7 @@ class DoctorsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @doctors = Doctor.all
+    @doctors = Doctor.all.order(id: :asc)
 
     @doctors = @doctors.where(field_id: params[:field_id]) if params[:field_id].present?
     @doctors = @doctors.joins(:doctor_languages).where(doctor_languages: { language_id: params[:language_id] }) if params[:language_id].present?

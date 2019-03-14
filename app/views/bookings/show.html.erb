@@ -1,16 +1,44 @@
-<div class="container-booking-show">
-  <div>
-    <h2>WOOHOO! 🎉🎉🎉🎉🎉🎉</h2>
-    <h2>Your booking is <strong>Now Confirmed!</strong></h2>
+<div class="container-booking">
 
-    <h4>Here are the details of your booking, <%= @booking.user.email %> ! </h4>
-    <h4> You will be having an appointment with Dr. <%= @booking.slot.doctor.name %>. 👩‍⚕️👨‍⚕️ </h4>
-    <h4> Your appointment date and time: <%= @booking.date %> | <%= @booking.time %> </h4>
+  <div class="container-booking-show">
+    <div>
+      <p>Help is on the way...</p>
+    </div>
 
+    <div>
+      <h2>Your booking is <strong>Now Confirmed!</strong></h2>
+    </div>
 
-    <%= link_to "See all my bookings", bookings_path, class: "btn btn-primary" %>
+<!--  -->
+    <div class="joostinator">
+      <img class="avatar-large " style="height: 56px" src='<%= cl_image_path(@doctor.image) %>'>
+      <h4> <%= @booking.slot.doctor.name %> </h4>
+    </div>
 
-    <%= link_to "Schedule another appointment", doctors_path, class: "btn btn-primary" %>
+    <div>
+      <h4> <%= @booking.date %> | <%= @booking.time %> </h4>
+    </div>
+
+    <div>
+      <h4> <%= @booking.slot.doctor.address %></h4>
+    </div>
+
+    <div class="container-booking" style="margin-top: 20px; margin-bottom: 10px; padding: 0 47px;">
+      <%= link_to "Schedule another appointment", doctors_path, class: "btn btn-flat" %>
+    </div>
+
+    <div class="container-booking" style="margin-top: 20px; margin-bottom: 10px; padding: 0 47px;">
+      <%= link_to "See all my bookings", bookings_path, class: "btn btn-flat", id: "deniz" %>
+    </div>
 
   </div>
+
+
+  <div
+  id="map"
+  class="map2"
+  data-markers="<%= @marker.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
+
 </div>
