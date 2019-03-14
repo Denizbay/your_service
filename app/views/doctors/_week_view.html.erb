@@ -1,6 +1,7 @@
 <div id="week_view">
 <!--   <p> <strong> Create a new booking: </strong> </p>
 -->
+<h3 id="alert_cal">please choose a date</h3>
 <div class="form">
 
   <%= link_to '<', doctor_path(@doctor, week_number: params[:week_number].present? ? params[:week_number].to_i - 1 : Date.current.cweek - 1) , :class => "week-before"%>
@@ -24,7 +25,7 @@
         <% if slot.present? %>
           <div style="<%= "grid-column: #{slot.weekday} / #{slot.weekday + 1}; grid-row: #{slot.hour_position} / #{slot.hour_position + 1};" %>">
             <%= radio_button_tag "booking[slot_id]", slot.id %>
-            <%= label_tag "booking_slot_id_#{slot.id}", slot.pretty_time, class: "btn btn-calendar" %>
+            <%= label_tag "booking_slot_id_#{slot.id}", slot.pretty_time, class: "btn btn-calendar btn_cal" %>
           </div>
           <% else %>
           <div style="<%= "grid-column: #{i + 1} / #{i + 2}; grid-row: #{x + 2} / #{x + 3};" %>">
@@ -44,10 +45,37 @@
 
   <%#= f.submit "Submit a booking", class: "btn btn-primary" %>
   <%= submit_tag 'Book appointment' , class: "btn btn-flat", style:"
-    width: 100%;"%>
+    width: 100%;", id: "subcalbtn"%>
 
   <% end %>
 </div>
 </div>
 
+<script>
+  error = document.getElementById("alert_cal")
 
+  btns = document.querySelectorAll(".btn_cal")
+
+  btns.forEach(function(x){
+    x.addEventListener("click", function(){
+       btns.forEach(function(y){
+        y.classList.remove("activecalbtn")
+       })
+      x.classList.add("activecalbtn")
+    })
+  })
+
+  subbtn = document.getElementById("subcalbtn")
+
+  subbtn.addEventListener("click", function(event){
+    event.preventDefault()
+    btns.forEach(function(z){
+      if(z.classList.contains("activecalbtn")){
+        document.getElementById("new_booking").submit()
+      }else{
+        error.style.display = "block";
+      }
+    })
+  })
+
+</script>
