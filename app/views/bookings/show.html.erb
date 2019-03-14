@@ -16,7 +16,7 @@
     </div>
 
     <div>
-      <h4> <%= @booking.date %> | <%= @booking.time %> </h4>
+      <h4> <%= @booking.date.strftime("%b %d, %Y") %> at <%= @booking.time %> </h4>
     </div>
 
     <br>
