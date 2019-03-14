@@ -9,29 +9,26 @@
       <h2>Your booking is <strong>Now Confirmed!</strong></h2>
     </div>
 
-    <div>
-      <h4>Here are the details of your booking: </h4>
-    </div>
-
-    <div>
-      <img class="avatar-large" src='<%= cl_image_path(@doctor.image) %>'>
+<!--  -->
+    <div class="joostinator">
+      <img class="avatar-large " style="height: 56px" src='<%= cl_image_path(@doctor.image) %>'>
       <h4> <%= @booking.slot.doctor.name %> </h4>
     </div>
 
     <div>
-      <h4> Date and Time: <%= @booking.date %> | <%= @booking.time %> </h4>
+      <h4> <%= @booking.date %> | <%= @booking.time %> </h4>
     </div>
 
     <div>
-      <h4> Address: <%= @booking.slot.doctor.address %></h4>
+      <h4> <%= @booking.slot.doctor.address %></h4>
     </div>
 
-    <div class="container-booking" style="margin-top: 20px; margin-bottom: 10px">
+    <div class="container-booking" style="margin-top: 20px; margin-bottom: 10px; padding: 0 47px;">
       <%= link_to "Schedule another appointment", doctors_path, class: "btn btn-flat" %>
     </div>
 
-    <div class="container-booking" style="margin-top: 20px; margin-bottom: 10px">
-      <%= link_to "See all my bookings", bookings_path, class: "btn btn-flat" %>
+    <div class="container-booking" style="margin-top: 20px; margin-bottom: 10px; padding: 0 47px;">
+      <%= link_to "See all my bookings", bookings_path, class: "btn btn-flat", id: "deniz" %>
     </div>
 
   </div>
