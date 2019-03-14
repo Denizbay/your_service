@@ -3,19 +3,19 @@
 
   <div class="form-ddown-container">
     <%#= label_tag(:city, "Choose city") %>
-    <%= text_field_tag :city, "", placeholder: 'Select City', class: "form-control-mod" %>
+    <%= text_field_tag :city, "", placeholder: 'Select City', class: "form-control-mod", value: params[:city] %>
     <i class="fas fa-arrow-circle-down"></i>
   </div>
 
   <div class="form-ddown-container">
     <%#= label_tag(:field_id, "Choose field", class: "form-group") %>
-    <%= select_tag(:field_id, options_for_select(Field.pluck(:name, :id)), prompt: 'Select Field', class: "form-control-mod") %>
+    <%= select_tag(:field_id, options_for_select(Field.pluck(:name, :id), params[:field_id]), prompt: 'Select Field', class: "form-control-mod") %>
        <i class="fas fa-arrow-circle-down"></i>
   </div>
 
   <div class="form-ddown-container">
     <%#= label_tag(:language_id, "Choose language", class: "form-group") %>
-    <%= select_tag(:language_id, options_for_select(Language.pluck(:name, :id)), prompt: 'Select Language', class: "form-control-mod") %>
+    <%= select_tag(:language_id, options_for_select(Language.pluck(:name, :id), params[:language_id]), prompt: 'Select Language', class: "form-control-mod") %>
     <i class="fas fa-arrow-circle-down"></i>
   </div>
 
