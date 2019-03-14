@@ -11,6 +11,12 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @doctor = @booking.slot.doctor
     @review = Review.new
+
+    @marker =  [{
+        lng: @doctor.longitude,
+        lat: @doctor.latitude,
+        infoWindow: render_to_string(partial: "/doctors/info_window", locals: { doctor: @doctor })
+    }]
   end
 
   def create
