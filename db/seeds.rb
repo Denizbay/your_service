@@ -102,8 +102,6 @@ doctor2 = Doctor.create(
   address: "Bergmannstrasse 91, Berlin, Germany",
   remote_image_url:"https://res.cloudinary.com/difmkiecj/image/upload/v1551362320/joost.jpeg",
   background: "pills_and_bottles.jpg",
-
-
   )
 
 DoctorLanguage.create(
@@ -183,13 +181,11 @@ end
 doctor4 = Doctor.create(
       name: "Dr. Billy Down",
       email: "billy_down@doctor.com",
-      field: Field.find_by(name: "Dermatology"),
+      field: Field.find_by(name: "Psychiatry"),
       description: "In my career I have seen it all and am happy to share that knowledge with you",
       address: "Lobeckstraße 36, Berlin, Germany",
       remote_image_url:"https://res.cloudinary.com/difmkiecj/image/upload/v1551362320/billy.jpg",
       background: "close_up_medical_equipment.jpg"
-
-
     )
 
 DoctorLanguage.create(
