@@ -23,7 +23,7 @@
           <%= image_tag "https://media.licdn.com/dms/image/C4D03AQFr4YoVJeam4g/profile-displayphoto-shrink_800_800/0?e=1557964800&v=beta&t=Tu4eO1C4dKGQMqSAzGk_xIwIoRZCQCw_XUghQ_R1XQ8", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to "bookings" do %>
+              <%= link_to bookings_path do %>
               <i class="far fa-calendar-check"></i> <%= t(".Appointments", default: "Appointments") %>
               <% end %>
             </li>

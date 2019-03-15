@@ -1,7 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :slot
-  has_one :review
+  has_one :review, dependent: :destroy
 
   def date
     Date.commercial(Date.today.year, slot.week_number, slot.weekday)

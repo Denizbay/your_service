@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   resources :doctors, only: [:index, :show] do
     #resources :slots, only: [:index, :show, :edit, :update]
     #resources :reviews, only: [:index, :show]
-    resources :bookings, only: [:new, :create, :show]
+    resources :bookings, only: [:new, :create]
   end
-  resources :bookings, only: [:destroy] do
+  resources :bookings, only: [:destroy, :show] do
     resources :reviews, only: [:create, :new]
   end
 

@@ -21,6 +21,42 @@
 }
 
 
-input {
+input, label {
   font-family: $body-font !important;
+}
+
+
+.form-control-mod{
+
+    font-family: $body-font !important;
+
+
+}
+
+
+#city placholder {
+  font-family: $body-font !important;
+}
+
+
+input[type="text"]::-webkit-input-placeholder {
+font-family: $body-font !important;
+}
+
+input[type="text"]:-moz-placeholder { /* Firefox 18- */
+font-family: $body-font !important;
+}
+
+input[type="text"]::-moz-placeholder {  /* Firefox 19+ */
+font-family: $body-font !important;
+}
+
+input[type="text"]:-ms-input-placeholder {
+font-family: $body-font !important;
+}
+
+
+
+abbr[title="required"] {
+  display: none;
 }

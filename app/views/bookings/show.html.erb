@@ -24,6 +24,8 @@
     <div>
       <p class="address-tabs"><i class="fas fa-map-marker-alt"></i><%= @booking.slot.doctor.address %></p>
     </div>
+    <br>
+    <%= link_to "Cancel your appointment", booking_path(@booking), method: :delete %>
   </div>
 
   <div
