@@ -1,14 +1,21 @@
 .week-before {
       color: black;
     padding: 4px;
-    margin-left: 45px;
+    // margin-left: 45px;
     font-size: 25px;
 }
 
 .week-after {
   color: black;
-  margin-left: 65%;
+  // margin-left: 65%;
   font-size: 25px;
+}
+
+.week-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
 }
 
 .week-view {

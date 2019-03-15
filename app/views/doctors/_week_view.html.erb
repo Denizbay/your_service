@@ -3,10 +3,11 @@
 -->
 <h3 id="alert_cal">please choose a date</h3>
 <div class="form">
-
+<div class="week-flex">
   <%= link_to '<', doctor_path(@doctor, week_number: params[:week_number].present? ? params[:week_number].to_i - 1 : Date.current.cweek - 1) , :class => "week-before"%>
+  <span>Week <%= @week_number %></span>
   <%= link_to '>', doctor_path(@doctor, week_number: params[:week_number].present? ? params[:week_number].to_i + 1 : Date.current.cweek + 1), :class => "week-after" %>
-
+</div>
 
   <%= simple_form_for([@doctor, @booking]) do |f| %>
 
