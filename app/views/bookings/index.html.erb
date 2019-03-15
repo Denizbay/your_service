@@ -24,7 +24,7 @@
           align-items: center;">
 
             <div style="
-            align-items: center; width: 23%">
+            align-items: center; flex: 0 0 25%;">
              <%= link_to booking_path(id: booking.id) do%>
                <%= cl_image_tag(booking.slot.doctor.image, class: "bookingindex") %>
               <p style="font-weight: bold;"> <%= booking.slot.doctor.name %></p>
@@ -32,18 +32,19 @@
             </div>
 
             <div style="
-            text-align: left;">
+            text-align: left; flex: 0 0 20%;">
               Scheduled for: <br> <%= booking.date.strftime("%b %d, %Y") %>  at  <%= booking.time  %>
             </div>
             <br>
             <div>
             <% if booking.review %>
               <div style="
-              text-align: left;">
+              text-align: left; width: 200px;">
                <%= render 'reviews/review', review: booking.review %>
               </div>
               <% else %>
-              <div>
+              <div style="
+              text-align: left; width: 200px;">
                 <%= link_to "Review your booking", new_booking_review_path(booking)%>
                 </div>
               <% end %>

@@ -80,7 +80,7 @@ DoctorLanguage.create(
 
 20.times do
   start_time = (9..16).to_a.map { |hour| Time.new(0,1,1,hour)}.sample
-  week_no = (10..11).to_a.sample
+  week_no = (11..13).to_a.sample
   week_day = rand(1..5)
   slot =  Slot.where(doctor: doctor1, start_time: start_time, week_number: week_no, weekday: week_day).first
   next if slot
@@ -123,7 +123,7 @@ DoctorLanguage.create(
 
 20.times do
   start_time = (9..16).to_a.map { |hour| Time.new(0,1,1,hour)}.sample
-  week_no = (10..11).to_a.sample
+  week_no = (11..13).to_a.sample
   week_day = rand(1..5)
   slot =  Slot.where(doctor: doctor2, start_time: start_time, week_number: week_no, weekday: week_day).first
   next if slot
@@ -166,7 +166,7 @@ DoctorLanguage.create(
 
 20.times do
   start_time = (9..16).to_a.map { |hour| Time.new(0,1,1,hour)}.sample
-  week_no = (10..11).to_a.sample
+  week_no = (11..13).to_a.sample
   week_day = rand(1..5)
   slot =  Slot.where(doctor: doctor3, start_time: start_time, week_number: week_no, weekday: week_day).first
   next if slot
@@ -209,7 +209,7 @@ DoctorLanguage.create(
 
 20.times do
   start_time = (9..16).to_a.map { |hour| Time.new(0,1,1,hour)}.sample
-  week_no = (10..11).to_a.sample
+  week_no = (11..13).to_a.sample
   week_day = rand(1..5)
   slot =  Slot.where(doctor: doctor4, start_time: start_time, week_number: week_no, weekday: week_day).first
   next if slot
@@ -254,7 +254,7 @@ DoctorLanguage.create(
 
 20.times do
   start_time = (9..16).to_a.map { |hour| Time.new(0,1,1,hour)}.sample
-  week_no = (10..11).to_a.sample
+  week_no = (11..13).to_a.sample
   week_day = rand(1..5)
   slot =  Slot.where(doctor: doctor5, start_time: start_time, week_number: week_no, weekday: week_day).first
   next if slot
@@ -295,7 +295,7 @@ Field.all.each do |field|
     puts "Creating Slot for doctor #{doctor_full_name}"
     20.times do
       start_time = (9..16).to_a.map { |hour| Time.new(0,1,1,hour)}.sample
-      week_no = (10..11).to_a.sample
+      week_no = (11..13).to_a.sample
       week_day = rand(1..5)
       slot =  Slot.where(doctor: doctor, start_time: start_time, week_number: week_no, weekday: week_day).first
       next if slot
@@ -339,7 +339,7 @@ Field.all.each do |field|
     puts "Creating Slot for doctor #{doctor_full_name}"
     20.times do
       start_time = (9..16).to_a.map { |hour| Time.new(0,1,1,hour)}.sample
-      week_no = (10..11).to_a.sample
+      week_no = (11..13).to_a.sample
       week_day = rand(1..5)
       slot =  Slot.where(doctor: doctor, start_time: start_time, week_number: week_no, weekday: week_day).first
       next if slot
