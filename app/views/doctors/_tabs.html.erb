@@ -38,7 +38,7 @@
     <div class="rating-box" style="display: flex;">
           <div class="rating">
 
-            <%= review.booking.created_at %>
+            <%= review.booking.created_at.strftime('%b %d, %Y') %>
             <div>
               <% review.stars.times do |star| %>
               <i class="fas fa-star"></i>
