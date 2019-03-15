@@ -98,7 +98,7 @@ doctor2 = Doctor.create(
   name: "Dr. Joest Dyckerhoff",
   email: "joest_dyckerhoff@doctor.com",
   field: Field.find_by(name: "General"),
-  description: "Over 20 experience across 3 continents allow me to give you the utmost professional medical advice and care",
+  description: "Over 20 years experience across 3 continents allow me to give you the utmost professional medical advice and care",
   address: "Bergmannstrasse 91, Berlin, Germany",
   remote_image_url:"https://res.cloudinary.com/difmkiecj/image/upload/v1551362320/joost.jpeg",
   background: "pills_and_bottles.jpg",
